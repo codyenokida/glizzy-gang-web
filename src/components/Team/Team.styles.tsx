@@ -19,13 +19,14 @@ export const SubContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 4rem;
+  font-size: 3rem;
   margin-top: 0;
 `;
 
 export const SubTitle = styled.h3`
   width: 30%;
   @media ${breakPoints.phoneOnly} {
+    font-size: 0.75rem;
     width: 80%;
   }
 `;

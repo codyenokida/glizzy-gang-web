@@ -13,7 +13,14 @@ import {
   OpenSea,
 } from "./NavBar.styles";
 
-const NavBar = () => {
+var truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/;
+const truncateEthAddress = function (address: string) {
+  var match = address.match(truncateRegex);
+  if (!match) return address;
+  return match[1] + "\u2026" + match[2];
+};
+
+const NavBar = ({ onClick, walletAddress }: any) => {
   return (
     <NavigationBar>
       <LeftContainer>
@@ -37,7 +44,9 @@ const NavBar = () => {
             <OpenSea />
           </SocialLink>
         </SocialsContainer>
-        <WalletButton>Connect Wallet</WalletButton>
+        <WalletButton onClick={() => onClick(true)}>
+          {walletAddress ? truncateEthAddress(walletAddress) : "Connect Wallet"}
+        </WalletButton>
       </RightContainer>
     </NavigationBar>
   );

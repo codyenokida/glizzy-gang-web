@@ -12,8 +12,8 @@ export const Container = styled.div`
   padding: 2rem 0;
 `;
 
-export const Title = styled.div`
-  font-size: 4rem;
+export const Title = styled.h1`
+  font-size: 3rem;
 `;
 
 export const SubContainer = styled.div`
