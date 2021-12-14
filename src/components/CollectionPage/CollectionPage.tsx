@@ -13,12 +13,12 @@ import {
 
 import collectionImage from "../../assets/glizzy-collection.png";
 
-const CollectionPage = () => {
+const CollectionPage = ({ ref }: any) => {
   return (
-    <Container>
+    <Container ref={ref}>
       <Title>The Glizzy Gang Collection</Title>
       <SubContainer>
-        <ImageContainer src={collectionImage}/>
+        <ImageContainer src={collectionImage} />
         <TextContainer>
           <Description>
             Glizzy Gang is a collection of 5555 Glizzys - clean cut glizzys that

@@ -16,7 +16,6 @@ export const Container = styled.div`
 export const StyledWalletProviderList = styled.div`
   display: flex;
   flex-direction: column;
-  background: blue;
 `;
 
 export const TitleContainer = styled.div`
@@ -33,7 +32,7 @@ export const StyledButton = styled.button`
   position: relative;
   padding: 1rem;
   height: 4.5rem;
-  background: black;
+  cursor: pointer;
 
   &:hover,
   &:focus {

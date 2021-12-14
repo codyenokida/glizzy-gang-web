@@ -20,14 +20,14 @@ const truncateEthAddress = function (address: string) {
   return match[1] + "\u2026" + match[2];
 };
 
-const NavBar = ({ onClick, walletAddress }: any) => {
+const NavBar = ({ onClick, walletAddress, executeAboutScroll }: any) => {
   return (
     <NavigationBar>
       <LeftContainer>
         <GlizzyLogo />
         <LinkContainer>
           <Link>Mint</Link>
-          <Link>About</Link>
+          <Link onClick={executeAboutScroll}>About</Link>
           <Link>Roadmap</Link>
           <Link>Team</Link>
         </LinkContainer>

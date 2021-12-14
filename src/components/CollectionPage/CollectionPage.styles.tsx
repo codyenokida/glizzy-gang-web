@@ -69,4 +69,10 @@ export const SocialLink = styled.div`
   width: 2rem;
   height: 2rem;
   padding: 0 1rem 0 0;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;

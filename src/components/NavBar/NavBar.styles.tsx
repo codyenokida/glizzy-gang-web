@@ -21,6 +21,12 @@ const LinkContainer = styled.ul`
 
 const Link = styled.li`
   padding: 0 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 const LeftContainer = styled.div`
@@ -50,6 +56,12 @@ const SocialLink = styled.div`
   padding: 0 1rem;
   width: 2rem;
   height: 2rem;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 const WalletButton = styled.div`
@@ -58,6 +70,12 @@ const WalletButton = styled.div`
   color: black;
   padding: 1rem;
   font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
   @media ${breakPoints.phoneOnly} {
     display: none;
   }

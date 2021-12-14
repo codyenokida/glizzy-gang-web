@@ -1,6 +1,6 @@
 import { Web3Provider } from "@ethersproject/providers";
 import { useWeb3React } from "@web3-react/core";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import "./App.css";
 import CollectionPage from "./components/CollectionPage/CollectionPage";
@@ -11,13 +11,22 @@ import NavBar from "./components/NavBar/NavBar";
 import Overlay from "./components/Overlay/Overlay";
 import RoadMap from "./components/RoadMap/RoadMap";
 import Team from "./components/Team/Team";
-import { selectWallet, setActiveProvider, setWalletConnected } from "./features/wallet/walletSlice";
+import {
+  selectWallet,
+  setActiveProvider,
+  setWalletConnected,
+} from "./features/wallet/walletSlice";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { loadLastAccount, saveLastAccount } from "./features/wallet/walletApi";
 import { AbstractConnector } from "@web3-react/abstract-connector";
-import SUPPORTED_WALLET_PROVIDERS, { WalletProvider } from "./constants/supportedWalletProviders";
+import SUPPORTED_WALLET_PROVIDERS, {
+  WalletProvider,
+} from "./constants/supportedWalletProviders";
 
 function App() {
+  // Ref
+  const aboutRef = useRef<HTMLDivElement>(null);
+
   // Redux
   const dispatch = useAppDispatch();
 
@@ -48,7 +57,8 @@ function App() {
     };
   }, [handleEscKey]);
 
-  const { account, active, chainId, library, activate } = useWeb3React<Web3Provider>();
+  const { account, active, chainId, library, activate } =
+    useWeb3React<Web3Provider>();
 
   useEffect(() => {
     setWalletAddress(account!);
@@ -97,15 +107,26 @@ function App() {
     }
   }, [account, active, chainId, connector, dispatch, library, provider]);
 
+  const executeAboutScroll = () => {
+    console.log(aboutRef);
+
+    if (aboutRef && aboutRef.current) {
+      window.scrollTo({ behavior: "smooth", top: aboutRef.current.offsetTop });
+
+      aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
       <NavBar
         onClick={walletAddress ? console.log : setShowOverlay}
         walletAddress={walletAddress}
+        executeAboutScroll={() => executeAboutScroll()}
       />
       <Landing />
       <Divider />
-      <CollectionPage />
+      <CollectionPage ref={aboutRef} />
       <Divider />
       <RoadMap />
       <Divider />
