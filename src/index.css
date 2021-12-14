@@ -1,15 +1,27 @@
+@font-face {
+  font-family: "Knewave";
+  src: local("Knewave"), url(./fonts/Knewave/Knewave-Regular.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Rubik-Bold";
+  src: local("Rubik"), url(./fonts/Rubik/static/Rubik-Bold.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Rubik-Regular";
+  src: local("Rubik"), url(./fonts/Rubik/static/Rubik-Regular.ttf) format("ttf");
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Rubik-Regular";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "Rubik-Regular";
 }
 
 html,

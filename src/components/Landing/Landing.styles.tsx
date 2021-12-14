@@ -14,6 +14,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
+  text-shadow: 0.5rem 0.5rem black;
   font-size: 6rem;
   margin-bottom: 1rem;
   @media ${breakPoints.phoneOnly} {
