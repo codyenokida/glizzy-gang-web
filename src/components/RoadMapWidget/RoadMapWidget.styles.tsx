@@ -12,12 +12,13 @@ export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 70%;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 export const Title = styled.div`
   font-size: 1rem;
   font-weight: 700;
+  margin: 0 1.5rem;
 `;
 
 export const Weiner = styled.div`

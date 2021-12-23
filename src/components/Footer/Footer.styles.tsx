@@ -70,8 +70,14 @@ export const SocialLink = styled.div`
   width: 2rem;
   height: 2rem;
   padding: 0 1rem 0 0;
+  cursor: pointer;
+  transition: 0.2s;
   @media ${breakPoints.phoneOnly} {
     padding: 0 0.5rem 0 0;
+  }
+
+  &:hover {
+    opacity: 0.8;
   }
 `;
 

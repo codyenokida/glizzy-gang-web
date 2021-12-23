@@ -21,8 +21,9 @@ export const SubContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 3rem;
+  font-size: 4rem;
   text-shadow: 0.25rem 0.25rem black;
+  font-family: "Knewave-Regular";
 `;
 
 export const SubTitle = styled.h3`

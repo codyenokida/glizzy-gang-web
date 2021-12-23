@@ -13,14 +13,20 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 3rem;
+  font-size: 4rem;
   text-shadow: 0.25rem 0.25rem black;
+  font-family: "Knewave-Regular";
 `;
 
 export const SubContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 0 20%;
+
+  @media ${breakPoints.tabletPortraitUp} {
+    padding: 0 10%;
+  }
+
   @media ${breakPoints.phoneOnly} {
     padding: 0 5%;
     flex-direction: column;
@@ -43,6 +49,7 @@ export const ImageContainer = styled.img`
   flex-basis: 100%;
   width: 24rem;
   height: 24rem;
+
   @media ${breakPoints.phoneOnly} {
     width: 16rem;
     height: 16rem;

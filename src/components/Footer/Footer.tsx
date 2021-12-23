@@ -9,7 +9,7 @@ import {
   SocialsContainer,
   GlizzyLogoBlack,
   Title,
-  Copyright
+  Copyright,
 } from "./Footer.styles";
 
 const Footer = () => {
@@ -21,15 +21,24 @@ const Footer = () => {
           <Title>Glizzy Gang</Title>
         </BrandingContainer>
         <Copyright>© 2021 GLIZZY GANG ALL RIGHTS RESERVED.</Copyright>
-       
       </LeftContainer>
       <RightContainer>
         <SocialsContainer>
           <SocialLink>
-            <FaDiscord size={32} />
+            <FaDiscord
+              size={32}
+              onClick={() =>
+                window.open("https://discord.com/invite/Qg6kVazDjr", "_blank")
+              }
+            />
           </SocialLink>
           <SocialLink>
-            <FaTwitter size={32} />
+            <FaTwitter
+              size={32}
+              onClick={() =>
+                window.open("https://twitter.com/NFTGlizzy", "_blank")
+              }
+            />
           </SocialLink>
           <SocialLink>
             <OpenSea />

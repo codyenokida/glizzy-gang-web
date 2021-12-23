@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import breakPoints from "../../constants/breakpoints";
 
-const NavigationBar = styled.nav`
+export const NavigationBar = styled.nav`
   position: absolute;
   width: 100%;
   display: flex;
@@ -10,16 +10,17 @@ const NavigationBar = styled.nav`
   padding: 1rem 0;
 `;
 
-const LinkContainer = styled.ul`
+export const LinkContainer = styled.ul`
   display: flex;
   list-style-type: none;
   overflow: hidden;
+  font-family: "Rubik-Bold";
   @media ${breakPoints.phoneOnly} {
     display: none;
   }
 `;
 
-const Link = styled.li`
+export const Link = styled.li`
   padding: 0 1rem;
   cursor: pointer;
   transition: 0.2s;
@@ -29,30 +30,35 @@ const Link = styled.li`
   }
 `;
 
-const LeftContainer = styled.div`
+export const LeftContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-left: 2rem;
 `;
 
-const RightContainer = styled.div`
+export const RightContainer = styled.div`
   display: flex;
   flex-direciton: row;
   margin-right: 2rem;
 `;
 
-const SocialsContainer = styled.div`
+export const SocialsContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 0 1rem;
+
+  @media ${breakPoints.tabletPortraitUp} {
+    display: none;
+  }
+
   @media ${breakPoints.phoneOnly} {
     display: none;
   }
 `;
 
-const SocialLink = styled.div`
+export const SocialLink = styled.div`
   padding: 0 1rem;
   width: 2rem;
   height: 2rem;
@@ -64,7 +70,7 @@ const SocialLink = styled.div`
   }
 `;
 
-const WalletButton = styled.div`
+export const WalletButton = styled.div`
   background-color: #f7d83c;
   border-radius: 0.25rem;
   color: black;
@@ -73,15 +79,17 @@ const WalletButton = styled.div`
   cursor: pointer;
   transition: 0.2s;
 
+  box-shadow: 2px 2px 2px 1px rgb(0, 0, 0, 0.5);
+
   &:hover {
     opacity: 0.9;
   }
   @media ${breakPoints.phoneOnly} {
-    display: none;
+    margin-right: 2rem;
   }
 `;
 
-const OpenSea = styled.div`
+export const OpenSea = styled.div`
   width: 2rem;
   height: 2rem;
   background-image: url("images/opensea-logo.png");
@@ -90,14 +98,19 @@ const OpenSea = styled.div`
   background-repeat: no-repeat;
 `;
 
-export {
-  NavigationBar,
-  LeftContainer,
-  RightContainer,
-  LinkContainer,
-  Link,
-  SocialsContainer,
-  SocialLink,
-  WalletButton,
-  OpenSea,
-};
+export const HamburgerMenuContainer = styled.div`
+  display: none;
+
+  @media ${breakPoints.phoneOnly} {
+    display: block;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+export const Anchor = styled.a`
+  text-decoration: none;
+  color: white;
+`;

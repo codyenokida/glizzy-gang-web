@@ -7,7 +7,7 @@ import tylerDog from "../../assets/tyler.png";
 
 const Team = () => {
   return (
-    <Container>
+    <Container id="team">
       <SubTitle>Meet the Glizzy Gang Team</SubTitle>
       <Title>Glizzy Frens</Title>
 

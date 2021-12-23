@@ -3,7 +3,7 @@ import { Container, SubContainer, Title } from "./RoadMap.styles";
 
 const RoadMap = () => {
   return (
-    <Container>
+    <Container id="roadmap">
       <Title>Glizzys on the road</Title>
       <SubContainer>
         <RoadMapWidget title="Pre-Mint Phase">

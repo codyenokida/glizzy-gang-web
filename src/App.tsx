@@ -1,6 +1,6 @@
 import { Web3Provider } from "@ethersproject/providers";
 import { useWeb3React } from "@web3-react/core";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import "./App.css";
 import CollectionPage from "./components/CollectionPage/CollectionPage";
@@ -22,11 +22,9 @@ import { AbstractConnector } from "@web3-react/abstract-connector";
 import SUPPORTED_WALLET_PROVIDERS, {
   WalletProvider,
 } from "./constants/supportedWalletProviders";
+import MintPage from "./components/MintPage/MintPage";
 
 function App() {
-  // Ref
-  const aboutRef = useRef<HTMLDivElement>(null);
-
   // Redux
   const dispatch = useAppDispatch();
 
@@ -107,26 +105,17 @@ function App() {
     }
   }, [account, active, chainId, connector, dispatch, library, provider]);
 
-  const executeAboutScroll = () => {
-    console.log(aboutRef);
-
-    if (aboutRef && aboutRef.current) {
-      window.scrollTo({ behavior: "smooth", top: aboutRef.current.offsetTop });
-
-      aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   return (
     <>
       <NavBar
         onClick={walletAddress ? console.log : setShowOverlay}
         walletAddress={walletAddress}
-        executeAboutScroll={() => executeAboutScroll()}
       />
       <Landing />
       <Divider />
-      <CollectionPage ref={aboutRef} />
+      <MintPage />
+      <Divider />
+      <CollectionPage />
       <Divider />
       <RoadMap />
       <Divider />

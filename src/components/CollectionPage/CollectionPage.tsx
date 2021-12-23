@@ -13,9 +13,9 @@ import {
 
 import collectionImage from "../../assets/glizzy-collection.png";
 
-const CollectionPage = ({ ref }: any) => {
+const CollectionPage = () => {
   return (
-    <Container ref={ref}>
+    <Container id="about">
       <Title>The Glizzy Gang Collection</Title>
       <SubContainer>
         <ImageContainer src={collectionImage} />
@@ -33,10 +33,20 @@ const CollectionPage = ({ ref }: any) => {
           </Description>
           <SocialsContainer>
             <SocialLink>
-              <FaDiscord size={32} />
+              <FaDiscord
+                size={32}
+                onClick={() =>
+                  window.open("https://discord.com/invite/Qg6kVazDjr", "_blank")
+                }
+              />
             </SocialLink>
             <SocialLink>
-              <FaTwitter size={32} />
+              <FaTwitter
+                size={32}
+                onClick={() =>
+                  window.open("https://twitter.com/NFTGlizzy", "_blank")
+                }
+              />
             </SocialLink>
             <SocialLink>
               <OpenSea />
