@@ -65,7 +65,14 @@ const MobileMenu = ({ isOpen, setIsOpen }: any) => {
             />
           </SocialLink>
           <SocialLink>
-            <OpenSea />
+            <OpenSea
+              onClick={() =>
+                window.open(
+                  "https://opensea.io/collection/nftglizzygang",
+                  "_blank"
+                )
+              }
+            />
           </SocialLink>
         </SocialsContainer>
       </ContentContainer>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakPoints from "../../constants/breakpoints";
 
 export const Container = styled.div`
   display: flex;
@@ -9,19 +10,29 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 
 export const ImageContainer = styled.div`
   border: 0.25rem solid white;
   border-radius: 50%;
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 13.5rem;
+  height: 13.5rem;
+
+  @media ${breakPoints.phoneOnly} {
+    width: 10.5rem;
+    height: 10.5rem;
+  }
 `;
 
 export const ProfileImage = styled.img`
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 13.5rem;
+  height: 13.5rem;
+
+  @media ${breakPoints.phoneOnly} {
+    width: 10.5rem;
+    height: 10.5rem;
+  }
 `;
 
 export const TwitterHandle = styled.div`

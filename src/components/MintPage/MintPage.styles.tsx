@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import breakPoints from "../../constants/breakpoints";
 
 export const Container = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -8,7 +10,7 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
   background: linear-gradient(30deg, #202020, #4c4c4c);
-  padding: 2rem 0;
+  padding: 5rem 0;
 `;
 
 export const SubContainer = styled.div`
@@ -18,10 +20,15 @@ export const SubContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 4rem;
+  font-size: 5rem;
   margin-top: 0;
-  text-shadow: 0.25rem 0.25rem black;
+  text-shadow: 0.5rem 0.5rem black;
   font-family: "Knewave-Regular";
+
+  @media ${breakPoints.phoneOnly} {
+    font-size: 3.5rem;
+    padding: 0 0.5rem;
+  }
 `;
 
 export const SubTitle = styled.h3`
@@ -40,7 +47,7 @@ export const MintButton = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  width: 7.8125rem;
+  width: 10rem;
   border-radius: 0.5rem;
   border: 2px transparent solid;
   font-size: 2.25rem;
@@ -103,19 +110,19 @@ type ButtonProps = {
 };
 
 export const Button = styled.div<ButtonProps>`
-  width: 5.5125rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 9rem;
+  height: 2.5rem;
   background-color: #f7d83c;
-  padding: 0.5rem 0.7rem;
-  border-radius: 0.25rem;
-  color: black;
+  border-radius: 0.5rem;
   font-weight: 700;
   transition: 0.2s;
-  box-shadow: 2px 2px 2px 1px rgb(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgb(0, 0, 0, 0.32);
+  color: black;
 
   cursor: pointer;
 
@@ -134,4 +141,48 @@ export const Button = styled.div<ButtonProps>`
   }
 
   ${(props) => (props.disabled ? "pointer-events: none; opacity: 0.3;" : "")}
+`;
+
+export const LeftDog = styled.img`
+  position: absolute;
+  left: 5rem;
+  bottom: -4rem;
+  width: 17rem;
+  height: 30.5rem;
+
+  @media ${breakPoints.tabletPortraitUp} {
+    width: 8rem;
+    height: 13.57rem;
+    left: 0rem;
+    bottom: -2rem;
+  }
+
+  @media ${breakPoints.phoneOnly} {
+    width: 8rem;
+    height: 13.57rem;
+    left: 0rem;
+    bottom: -2rem;
+  }
+`;
+
+export const RightDog = styled.img`
+  position: absolute;
+  right: 5rem;
+  bottom: -4rem;
+  width: 17rem;
+  height: 30.5rem;
+
+  @media ${breakPoints.tabletPortraitUp} {
+    width: 8rem;
+    height: 13.57rem;
+    right: 0rem;
+    bottom: -2rem;
+  }
+
+  @media ${breakPoints.phoneOnly} {
+    width: 8rem;
+    height: 13.57rem;
+    right: 0rem;
+    bottom: -2rem;
+  }
 `;

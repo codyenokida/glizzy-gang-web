@@ -13,6 +13,7 @@ export const TitleContainer = styled.div`
   flex-direction: row;
   width: 70%;
   justify-content: center;
+  align-items: center;
 `;
 
 export const Title = styled.div`
@@ -22,14 +23,14 @@ export const Title = styled.div`
 `;
 
 export const Weiner = styled.div`
-  width: 1rem;
-  height: 1rem;
+  width: 2rem;
+  height: 2rem;
   background-image: url("images/small-glizzy.png");
   background-position: left center;
-  background-size: 1rem 1rem;
+  background-size: 2rem 2rem;
   background-repeat: no-repeat;
 `;
 
 export const Weiner180 = styled(Weiner)`
-  transform: rotate(270deg);
+  transform: scaleX(-1);
 `;

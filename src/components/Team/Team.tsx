@@ -14,8 +14,8 @@ const Team = () => {
       <TeamContainer>
         <TeamMember
           title="Glizzy Mastermind"
-          twitter="@NFTGlizzy"
-          description="Yotdog, Creator and Artist"
+          twitter="@Yotdoghere"
+          description="Yotdog, Founder and Artist"
           img={yotDog}
         />
         <TeamMember

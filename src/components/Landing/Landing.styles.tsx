@@ -2,7 +2,7 @@ import styled from "styled-components";
 import breakPoints from "../../constants/breakpoints";
 
 export const Container = styled.div`
-position: relative
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -17,7 +17,8 @@ position: relative
 export const Title = styled.h1`
   font-family: "Knewave-Regular";
   text-shadow: 0.5rem 0.5rem black;
-  font-size: 6rem;
+  font-size: 8.5rem;
+  margin-top: 0;
   margin-bottom: 3rem;
   @media ${breakPoints.phoneOnly} {
     font-size: 4rem;
@@ -34,13 +35,18 @@ export const SubTitle = styled.h3`
 `;
 
 export const MintButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 9rem;
+  height: 2.5rem;
   background-color: #f7d83c;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   color: black;
   font-weight: 700;
+  font-family: "Rubik-Bold";
   transition: 0.2s;
-  box-shadow: 2px 2px 2px 1px rgb(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgb(0, 0, 0, 0.32);
 
   cursor: pointer;
 
@@ -51,29 +57,34 @@ export const MintButton = styled.div`
 
 export const LeftDog = styled.img`
   position: absolute;
-  left: 0rem;
+  left: -5rem;
   bottom: 0;
-  width: 20rem;
+  width: 22rem;
+
+  @media ${breakPoints.tabletPortraitUp} {
+    width: 18rem;
+    left: -2rem;
+  }
 
   @media ${breakPoints.phoneOnly} {
-    width: 7.5rem;
-    left: 0rem;
+    width: 9rem;
+    left: -2rem;
   }
 `;
 
 export const RightDog = styled.img`
   position: absolute;
-  right: 0rem;
+  right: -5rem;
   bottom: 0;
-  width: 20rem;
+  width: 22rem;
 
   @media ${breakPoints.tabletPortraitUp} {
     width: 18rem;
-    right: 0rem;
+    right: -2rem;
   }
 
   @media ${breakPoints.phoneOnly} {
-    width: 7.5rem;
-    right: 0rem;
+    width: 9rem;
+    right: -2rem;
   }
 `;

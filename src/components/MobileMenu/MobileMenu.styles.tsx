@@ -14,7 +14,7 @@ export const Container = styled.div<ContainerProps>`
   background-color: black;
   color: white;
   margin: 0;
-  z-index: 99;
+  z-index: 1001;
   transition: left 0.3s ease-out;
 `;
 

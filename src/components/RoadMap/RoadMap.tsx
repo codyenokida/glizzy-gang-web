@@ -1,5 +1,14 @@
 import RoadMapWidget from "../RoadMapWidget/RoadMapWidget";
-import { Container, SubContainer, Title } from "./RoadMap.styles";
+import {
+  Container,
+  LeftDog,
+  RightDog,
+  SubContainer,
+  Title,
+} from "./RoadMap.styles";
+
+import leftDog from "../../assets/roadGlizzyOne.png";
+import rightDog from "../../assets/roadGlizzyTwo.png";
 
 const RoadMap = () => {
   return (
@@ -65,6 +74,8 @@ const RoadMap = () => {
           <br />
         </RoadMapWidget>
       </SubContainer>
+      <LeftDog src={leftDog} />
+      <RightDog src={rightDog} />
     </Container>
   );
 };

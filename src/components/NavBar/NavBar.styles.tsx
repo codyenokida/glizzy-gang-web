@@ -8,6 +8,7 @@ export const NavigationBar = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   padding: 1rem 0;
+  z-index: 1000;
 `;
 
 export const LinkContainer = styled.ul`
@@ -39,6 +40,7 @@ export const LeftContainer = styled.div`
 export const RightContainer = styled.div`
   display: flex;
   flex-direciton: row;
+  align-items: center;
   margin-right: 2rem;
 `;
 
@@ -71,15 +73,20 @@ export const SocialLink = styled.div`
 `;
 
 export const WalletButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 9rem;
+  height: 2.5rem;
   background-color: #f7d83c;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   color: black;
-  padding: 1rem;
   font-weight: 700;
+  font-family: "Rubik-Bold";
   cursor: pointer;
   transition: 0.2s;
 
-  box-shadow: 2px 2px 2px 1px rgb(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgb(0, 0, 0, 0.32);
 
   &:hover {
     opacity: 0.9;

@@ -2,6 +2,8 @@ import { useState } from "react";
 import {
   Button,
   Container,
+  LeftDog,
+  RightDog,
   MintButton,
   MintButtonContainer,
   Minus,
@@ -10,6 +12,9 @@ import {
   SubTitle,
   Title,
 } from "./MintPage.styles";
+
+import leftDog from "../../assets/mintGlizzyOne.png";
+import rightDog from "../../assets/mintGlizzyTwo.png";
 
 const MintPage = () => {
   const [mintNum, setMintNum] = useState(1);
@@ -40,6 +45,8 @@ const MintPage = () => {
           MINT
         </Button>
       </MintButtonContainer>
+      <LeftDog src={leftDog} />
+      <RightDog src={rightDog} />
     </Container>
   );
 };
