@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link as RouterLink } from "react-router-dom";
 
 type ContainerProps = {
   isOpen: boolean;
@@ -37,7 +38,7 @@ export const ListContainer = styled.ul`
   margin-top: 2rem;
 `;
 
-export const List = styled.li`
+export const Link = styled.li`
   margin: 1rem 0;
 `;
 
@@ -78,4 +79,9 @@ export const SocialLink = styled.div`
   &:hover {
     opacity: 0.7;
   }
+`;
+
+export const StyledRouterLink = styled(RouterLink)`
+  text-decoration: none;
+  color: white;
 `;

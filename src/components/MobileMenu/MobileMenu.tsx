@@ -2,11 +2,12 @@ import {
   Anchor,
   Container,
   ContentContainer,
-  List,
+  Link,
   ListContainer,
   LogoContainer,
   SocialLink,
   SocialsContainer,
+  StyledRouterLink,
   XContainer,
 } from "./MobileMenu.styles";
 import { FaDiscord, FaTwitter } from "react-icons/fa";
@@ -14,8 +15,11 @@ import { FaDiscord, FaTwitter } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import GlizzyLogo from "../Logo/GlizzyLogo";
 import { OpenSea } from "../CollectionPage/CollectionPage.styles";
+import { useLocation } from "react-router-dom";
 
 const MobileMenu = ({ isOpen, setIsOpen }: any) => {
+  const location = useLocation();
+
   return (
     <Container isOpen={isOpen}>
       <XContainer>
@@ -26,26 +30,55 @@ const MobileMenu = ({ isOpen, setIsOpen }: any) => {
           <GlizzyLogo />
         </LogoContainer>
         <ListContainer>
-          <List>
-            <Anchor href="#mint" onClick={() => setIsOpen(false)}>
-              Mint
-            </Anchor>
-          </List>
-          <List>
-            <Anchor href="#about" onClick={() => setIsOpen(false)}>
-              About
-            </Anchor>
-          </List>
-          <List>
-            <Anchor href="#roadmap" onClick={() => setIsOpen(false)}>
-              Roadmap
-            </Anchor>
-          </List>
-          <List>
-            <Anchor href="#team" onClick={() => setIsOpen(false)}>
-              Team
-            </Anchor>
-          </List>
+          <Link>
+            {location.pathname !== "/" ? (
+              <StyledRouterLink to="/" onClick={() => setIsOpen(false)}>
+                Mint
+              </StyledRouterLink>
+            ) : (
+              <Anchor href="#mint" onClick={() => setIsOpen(false)}>
+                Mint
+              </Anchor>
+            )}
+          </Link>
+          <Link>
+            {location.pathname !== "/" ? (
+              <StyledRouterLink to="/" onClick={() => setIsOpen(false)}>
+                About
+              </StyledRouterLink>
+            ) : (
+              <Anchor href="#about" onClick={() => setIsOpen(false)}>
+                About
+              </Anchor>
+            )}
+          </Link>
+          <Link>
+            {location.pathname !== "/" ? (
+              <StyledRouterLink to="/" onClick={() => setIsOpen(false)}>
+                Roadmap
+              </StyledRouterLink>
+            ) : (
+              <Anchor href="#roadmap" onClick={() => setIsOpen(false)}>
+                Roadmap
+              </Anchor>
+            )}
+          </Link>
+          <Link>
+            {location.pathname !== "/" ? (
+              <StyledRouterLink to="/" onClick={() => setIsOpen(false)}>
+                Team
+              </StyledRouterLink>
+            ) : (
+              <Anchor href="#team" onClick={() => setIsOpen(false)}>
+                Team
+              </Anchor>
+            )}
+          </Link>
+          <Link>
+            <StyledRouterLink to="/claim" onClick={() => setIsOpen(false)}>
+              $MUSTARD
+            </StyledRouterLink>
+          </Link>
         </ListContainer>
         <SocialsContainer>
           <SocialLink>
