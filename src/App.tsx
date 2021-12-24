@@ -24,6 +24,10 @@ import SUPPORTED_WALLET_PROVIDERS, {
 } from "./constants/supportedWalletProviders";
 import MintPage from "./components/MintPage/MintPage";
 
+// react-router
+import { Routes, Route } from "react-router-dom";
+import ClaimPage from "./components/ClaimPage/ClaimPage";
+
 function App() {
   // Redux
   const dispatch = useAppDispatch();
@@ -111,15 +115,26 @@ function App() {
         onClick={walletAddress ? console.log : setShowOverlay}
         walletAddress={walletAddress}
       />
-      <Landing />
-      <Divider />
-      <MintPage />
-      <Divider />
-      <CollectionPage />
-      <Divider />
-      <RoadMap />
-      <Divider />
-      <Team />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Landing />
+              <Divider />
+              <MintPage />
+              <Divider />
+              <CollectionPage />
+              <Divider />
+              <RoadMap />
+              <Divider />
+              <Team />
+            </>
+          }
+        />
+        <Route path="/claim" element={<ClaimPage />} />
+      </Routes>
+
       <Divider />
       <Footer />
       {showOverlay && (

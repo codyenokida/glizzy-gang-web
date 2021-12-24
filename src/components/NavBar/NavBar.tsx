@@ -14,9 +14,11 @@ import {
   OpenSea,
   HamburgerMenuContainer,
   Anchor,
+  StyledRouterLink,
 } from "./NavBar.styles";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 var truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/;
 const truncateEthAddress = function (address: string) {
@@ -28,6 +30,8 @@ const truncateEthAddress = function (address: string) {
 const NavBar = ({ onClick, walletAddress }: any) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const location = useLocation();
+
   return (
     <>
       <NavigationBar>
@@ -35,16 +39,35 @@ const NavBar = ({ onClick, walletAddress }: any) => {
           <GlizzyLogo />
           <LinkContainer>
             <Link>
-              <Anchor href="#mint">Mint</Anchor>
+              {location.pathname !== "/" ? (
+                <StyledRouterLink to="/">Mint</StyledRouterLink>
+              ) : (
+                <Anchor href="#mint">Mint</Anchor>
+              )}
             </Link>
             <Link>
-              <Anchor href="#about">About</Anchor>
+              {location.pathname !== "/" ? (
+                <StyledRouterLink to="/">About</StyledRouterLink>
+              ) : (
+                <Anchor href="#about">About</Anchor>
+              )}
             </Link>
             <Link>
-              <Anchor href="#roadmap">Roadmap</Anchor>
+              {location.pathname !== "/" ? (
+                <StyledRouterLink to="/">Roadmap</StyledRouterLink>
+              ) : (
+                <Anchor href="#roadmap">Roadmap</Anchor>
+              )}
             </Link>
             <Link>
-              <Anchor href="#team">Team</Anchor>
+              {location.pathname !== "/" ? (
+                <StyledRouterLink to="/">Team</StyledRouterLink>
+              ) : (
+                <Anchor href="#team">Team</Anchor>
+              )}
+            </Link>
+            <Link>
+              <StyledRouterLink to="/claim">$MUSTARD</StyledRouterLink>
             </Link>
           </LinkContainer>
         </LeftContainer>

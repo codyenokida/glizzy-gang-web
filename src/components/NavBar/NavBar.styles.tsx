@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Link as RouterLink } from "react-router-dom";
+
 import breakPoints from "../../constants/breakpoints";
 
 export const NavigationBar = styled.nav`
@@ -118,6 +120,11 @@ export const HamburgerMenuContainer = styled.div`
 `;
 
 export const Anchor = styled.a`
+  text-decoration: none;
+  color: white;
+`;
+
+export const StyledRouterLink = styled(RouterLink)`
   text-decoration: none;
   color: white;
 `;

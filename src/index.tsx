@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import { Web3Provider } from "@ethersproject/providers";
 import { Web3ReactProvider } from "@web3-react/core";
+import { BrowserRouter } from "react-router-dom";
 
 let cachedLibrary: Record<string, Web3Provider> = {};
 
@@ -20,11 +21,13 @@ function getLibrary(provider: any): Web3Provider {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Web3ReactProvider getLibrary={getLibrary}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </Web3ReactProvider>
+    <BrowserRouter>
+      <Web3ReactProvider getLibrary={getLibrary}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </Web3ReactProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
