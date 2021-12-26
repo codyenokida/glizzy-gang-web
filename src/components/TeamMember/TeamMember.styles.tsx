@@ -38,6 +38,11 @@ export const ProfileImage = styled.img`
 export const TwitterHandle = styled.div`
   margin: 1rem 0;
   font-weight: 700;
+  transition: 0.2s;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export const Description = styled.div``;

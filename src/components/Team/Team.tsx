@@ -17,18 +17,21 @@ const Team = () => {
           twitter="@Yotdoghere"
           description="Yotdog, Founder and Artist"
           img={yotDog}
+          twitterLink="https://twitter.com/Yotdoghere"
         />
         <TeamMember
           title="Glizzy Enthusiast"
           twitter="@0xchrxme"
           description="Jimmydog, Community Manager and Marketing"
           img={jimmyDog}
+          twitterLink="https://twitter.com/0xchrxme"
         />
         <TeamMember
           title="Glizzy Enthusiast"
           twitter="@totallynotrelyt"
           description="Tylerdog, Community Manager and Marketing"
           img={tylerDog}
+          twitterLink="https://twitter.com/totallynotrelyt"
         />
       </TeamContainer>
     </Container>
