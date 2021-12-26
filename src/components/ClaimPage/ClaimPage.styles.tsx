@@ -20,6 +20,7 @@ export const Container = styled.div`
 
   @media ${breakPoints.tabletPortraitUp} {
     flex-direction: column;
+    height: auto;
   }
 `;
 
