@@ -18,7 +18,7 @@ import {
 } from "./NavBar.styles";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 var truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/;
 const truncateEthAddress = function (address: string) {
@@ -31,12 +31,18 @@ const NavBar = ({ onClick, walletAddress }: any) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <>
       <NavigationBar>
         <LeftContainer>
-          <GlizzyLogo />
+          <GlizzyLogo
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/");
+            }}
+          />
           <LinkContainer>
             <Link>
               {location.pathname !== "/" ? (

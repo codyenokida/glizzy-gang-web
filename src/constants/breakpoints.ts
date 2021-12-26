@@ -13,7 +13,7 @@ const breakPoints = {
   phoneOnly: `(max-width: ${sizes.phone})`,
   phoneLandscape: `(orientation: landscape) and (max-height: ${sizes.phoneLandscape})`,
   tabletPortraitUp: `(max-width: ${sizes.tabletPortrait})`,
-  tabletLandscapeUp: `(min-width: ${sizes.tabletLandscape})`,
+  tabletLandscapeUp: `(max-width: ${sizes.tabletLandscape})`,
   desktopDown: `(max-width: ${sizes.desktop})`,
   bigDesktopUp: `(min-width: ${sizes.bigDesktop})`,
 };

@@ -7,6 +7,11 @@ const GlizzyLogo = styled.div`
   background-position: left center;
   background-size: 3rem 3rem;
   background-repeat: no-repeat;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export default GlizzyLogo;

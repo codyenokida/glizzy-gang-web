@@ -4,6 +4,7 @@ import breakPoints from "../../constants/breakpoints";
 export const Container = styled.div`
   position: relative;
   width: 100%;
+  height: 75vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,6 +12,11 @@ export const Container = styled.div`
   text-align: center;
   background: radial-gradient(#04a5f5, #055ca8);
   padding: 8rem 0 4rem 0;
+
+  @media ${breakPoints.tabletLandscapeUp} {
+    flex-direction: column;
+    height: 100vh;
+  }
 
   @media ${breakPoints.tabletPortraitUp} {
     flex-direction: column;
@@ -22,6 +28,13 @@ export const GlizzyCart = styled.img`
   height: 29.7rem;
   margin: 0 4rem 0 2rem;
 
+  @media ${breakPoints.tabletLandscapeUp} {
+    flex-direction: column;
+    width: 30rem;
+    height: 29.7rem;
+    margin: 0;
+  }
+
   @media ${breakPoints.tabletPortraitUp} {
     flex-direction: column;
     width: 20rem;
@@ -32,6 +45,16 @@ export const GlizzyCart = styled.img`
 
 export const TextContainer = styled.div`
   text-align: left;
+
+  @media ${breakPoints.tabletLandscapeUp} {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   @media ${breakPoints.tabletPortraitUp} {
     text-align: center;
     width: 100%;
@@ -49,6 +72,12 @@ export const Title = styled.h1`
   color: #ffec00;
   margin-top: 0;
   margin-bottom: 3.5rem;
+
+  @media ${breakPoints.tabletLandscapeUp} {
+    font-size: 3.5rem;
+    padding: 0 0.5rem;
+  }
+
   @media ${breakPoints.tabletPortraitUp} {
     font-size: 3.5rem;
     padding: 0 0.5rem;
@@ -57,6 +86,12 @@ export const Title = styled.h1`
 
 export const Paragraph = styled.p`
   width: 37rem;
+
+  @media ${breakPoints.tabletLandscapeUp} {
+    width: 80%;
+    padding: 0 10%;
+  }
+
   @media ${breakPoints.tabletPortraitUp} {
     width: 80%;
     padding: 0 10%;
@@ -101,6 +136,10 @@ export const ClaimDog = styled.img`
   bottom: -2rem;
   width: 13rem;
   height: 29.2rem;
+
+  @media ${breakPoints.tabletLandscapeUp} {
+    display: none;
+  }
 
   @media ${breakPoints.tabletPortraitUp} {
     display: none;
