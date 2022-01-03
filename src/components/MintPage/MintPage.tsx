@@ -127,7 +127,7 @@ const MintPage = () => {
     <Container id="mint">
       <Title>Mint a Glizzy</Title>
       <SubTitle>
-        {totalSupply}/5555 Glizzys left to be gripped at 0.0555 ETH each
+        {5555 - totalSupply}/5555 Glizzys left to be gripped at 0.0555 ETH each
       </SubTitle>
       <MintButtonContainer>
         <MintButton>
@@ -141,7 +141,9 @@ const MintPage = () => {
           <Num>{mintNum}</Num>
           <Plus
             onClick={() => {
-              setMintNum(mintNum - numMinted > 0 ? mintNum - numMinted : 1);
+              setMintNum(
+                mintNum + 1 < 5 - numMinted ? mintNum + 1 : 5 - numMinted
+              );
             }}
           >
             +
@@ -149,7 +151,7 @@ const MintPage = () => {
         </MintButton>
         <Button
           onClick={() => whitelistMint()}
-          disabled={!isWhitelisted || !sig || loading || totalSupply === 0}
+          disabled={!isWhitelisted || !sig || loading || totalSupply === 5555}
         >
           MINT
         </Button>
