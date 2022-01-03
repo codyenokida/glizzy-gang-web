@@ -26,7 +26,7 @@ import rightDog from "../../assets/mintGlizzyTwo.png";
 //   return ethers.utils.parseUnits(value.toString(), decimals).toString();
 // }
 
-const contractAddress = "0x89FfD3d75866733e92649157bA149FF342B70A28";
+const contractAddress = "0xA727ceA448c740fbF827574026395Cf7e5f973c1";
 
 const MintPage = () => {
   const { account, library } = useWeb3React<Web3Provider>();
@@ -35,6 +35,7 @@ const MintPage = () => {
   const [totalSupply, setTotalSupply] = useState(5555);
   // const [glizzyNum, setGlizzyNum] = useState(0);
   const [numMinted, setNumMinted] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (library && account) {
@@ -67,34 +68,60 @@ const MintPage = () => {
               .catch(console.error);
           }
         });
-      } catch (e) {}
+      } catch (e: any) {
+        alert(
+          e.error?.message.replace("execution reverted: ", "") || e.message
+        );
+        console.error(e);
+        setLoading(false);
+      }
     }
   }, [account, library]);
 
   let sig: string = "";
   // calculate number of mints left
   const isWhitelisted = walletConfig.find(({ address, signature }) => {
-    if (account === address) {
+    if (account?.toLowerCase() === address) {
       sig = signature;
       return true;
     }
     return false;
   });
 
-  // const whitelistMint = async () => {
-  //   try {
-  //     const contract = new ethers.Contract(
-  //       contractAddress,
-  //       abi,
-  //       library?.getSigner()
-  //     );
-  //     await contract.presaleMint(
-  //       0.0555 * mintNum,
-  //       sig,
-  //       ethers.BigNumber.from(mintNum)
-  //     );
-  //   } catch (e) {}
-  // };
+  const whitelistMint = async () => {
+    try {
+      const contract = new ethers.Contract(
+        contractAddress,
+        abi,
+        library?.getSigner()
+      );
+
+      const estimatedGasLimit = await contract.estimateGas.presaleMint(
+        0.0555 * mintNum,
+        sig,
+        ethers.BigNumber.from(mintNum)
+      );
+
+      setLoading(true);
+      await contract.presaleMint(
+        0.0555 * mintNum,
+        sig,
+        ethers.BigNumber.from(mintNum),
+        {
+          gasLimit: ethers.utils.hexlify(
+            Math.floor(
+              estimatedGasLimit.mul(ethers.BigNumber.from(1.2)).toNumber()
+            )
+          ),
+        }
+      );
+      setLoading(false);
+    } catch (e: any) {
+      alert(e.error?.message.replace("execution reverted: ", "") || e.message);
+      console.error(e);
+      setLoading(false);
+    }
+  };
 
   return (
     <Container id="mint">
@@ -114,15 +141,16 @@ const MintPage = () => {
           <Num>{mintNum}</Num>
           <Plus
             onClick={() => {
-              setMintNum(
-                mintNum - numMinted === 5 ? 5 - numMinted : mintNum + 1
-              );
+              setMintNum(mintNum - numMinted > 0 ? mintNum - numMinted : 1);
             }}
           >
             +
           </Plus>
         </MintButton>
-        <Button onClick={() => void 0} disabled={true || !isWhitelisted || !sig}>
+        <Button
+          onClick={() => whitelistMint()}
+          disabled={!isWhitelisted || !sig || loading || totalSupply === 0}
+        >
           MINT
         </Button>
       </MintButtonContainer>

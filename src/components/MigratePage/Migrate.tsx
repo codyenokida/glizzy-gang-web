@@ -90,13 +90,15 @@ const Migrate = () => {
           library?.getSigner()
         );
 
-        const estimatedGasLimit = ethers.BigNumber.from(1.2);
+        const estimatedGasLimit = await contract.estimateGas.migrate(
+          ethers.BigNumber.from(tokenID)
+        );
 
         setLoading(true);
         const res = await contract.migrate(ethers.BigNumber.from(tokenID), {
           gasLimit: ethers.utils.hexlify(
             Math.floor(
-              estimatedGasLimit.mul(ethers.BigNumber.from(1.1)).toNumber()
+              estimatedGasLimit.mul(ethers.BigNumber.from(1.2)).toNumber()
             )
           ),
         });
