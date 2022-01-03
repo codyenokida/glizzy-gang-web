@@ -98,7 +98,7 @@ const MintPage = () => {
       );
 
       const estimatedGasLimit = await contract.estimateGas.presaleMint(
-        0.0555 * mintNum,
+        ethers.BigNumber.from(0.0555 * mintNum),
         sig,
         ethers.BigNumber.from(mintNum)
       );
