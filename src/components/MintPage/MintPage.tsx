@@ -22,9 +22,9 @@ import abi from "../../contracts/GlizzyGangABI.json";
 import leftDog from "../../assets/mintGlizzyOne.png";
 import rightDog from "../../assets/mintGlizzyTwo.png";
 
-// function toAtomicString(value: number, decimals: number) {
-//   return ethers.utils.parseUnits(value.toString(), decimals).toString();
-// }
+function toAtomicString(value: number, decimals: number) {
+  return ethers.utils.parseUnits(value.toString(), decimals).toString();
+}
 
 const contractAddress = "0xA727ceA448c740fbF827574026395Cf7e5f973c1";
 
@@ -98,16 +98,16 @@ const MintPage = () => {
       );
 
       const estimatedGasLimit = await contract.estimateGas.presaleMint(
-        ethers.BigNumber.from(0.0555 * mintNum),
+        toAtomicString(0.0555 * mintNum, 18),
         sig,
-        ethers.BigNumber.from(mintNum)
+        toAtomicString(mintNum, 18)
       );
 
       setLoading(true);
       await contract.presaleMint(
-        ethers.BigNumber.from(0.0555 * mintNum),
+        toAtomicString(0.0555 * mintNum, 18),
         sig,
-        ethers.BigNumber.from(mintNum),
+        toAtomicString(mintNum, 18),
         {
           gasLimit: ethers.utils.hexlify(
             Math.floor(
