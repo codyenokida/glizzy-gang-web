@@ -98,24 +98,18 @@ const MintPage = () => {
       );
 
       const estimatedGasLimit = await contract.estimateGas.presaleMint(
-        toAtomicString(0.0555 * mintNum, 18),
-        sig,
-        toAtomicString(mintNum, 18)
+        ethers.utils.arrayify(sig),
+        mintNum,
+        { value: toAtomicString(0.0555 * mintNum, 18) }
       );
 
       setLoading(true);
-      await contract.presaleMint(
-        toAtomicString(0.0555 * mintNum, 18),
-        sig,
-        toAtomicString(mintNum, 18),
-        {
-          gasLimit: ethers.utils.hexlify(
-            Math.floor(
-              estimatedGasLimit.mul(ethers.BigNumber.from(1.2)).toNumber()
-            )
-          ),
-        }
-      );
+      await contract.presaleMint(ethers.utils.arrayify(sig), mintNum, {
+        value: toAtomicString(0.0555 * mintNum, 18),
+        gasLimit: ethers.utils.hexlify(
+          Math.floor(estimatedGasLimit.toNumber() * 1.2)
+        ),
+      });
       setLoading(false);
     } catch (e: any) {
       alert(e.error?.message.replace("execution reverted: ", "") || e.message);
@@ -152,6 +146,7 @@ const MintPage = () => {
         </MintButton>
         <Button
           onClick={() => whitelistMint()}
+          // disabled={false}
           disabled={!isWhitelisted || !sig || loading || totalSupply === 5555}
         >
           MINT
