@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { useEffect, useState } from "react";
 import { Web3Provider } from "@ethersproject/providers";
 import { useWeb3React } from "@web3-react/core";
@@ -24,9 +22,9 @@ import abi from "../../contracts/GlizzyGangABI.json";
 import leftDog from "../../assets/mintGlizzyOne.png";
 import rightDog from "../../assets/mintGlizzyTwo.png";
 
-function toAtomicString(value: number, decimals: number) {
-  return ethers.utils.parseUnits(value.toString(), decimals).toString();
-}
+// function toAtomicString(value: number, decimals: number) {
+//   return ethers.utils.parseUnits(value.toString(), decimals).toString();
+// }
 
 const contractAddress = "0x89FfD3d75866733e92649157bA149FF342B70A28";
 
@@ -35,7 +33,7 @@ const MintPage = () => {
 
   const [mintNum, setMintNum] = useState(1);
   const [totalSupply, setTotalSupply] = useState(5555);
-  const [glizzyNum, setGlizzyNum] = useState(0);
+  // const [glizzyNum, setGlizzyNum] = useState(0);
   const [numMinted, setNumMinted] = useState(0);
 
   useEffect(() => {
@@ -68,13 +66,6 @@ const MintPage = () => {
               .totalSupply()
               .then((res: any) => setTotalSupply(parseInt(res.toString())))
               .catch(console.error);
-
-            contract
-              .walletOfOwner(account)
-              .then((res: any[]) => {
-                setGlizzyNum(res.length);
-              })
-              .catch(console.error);
           }
         });
       } catch (e) {}
@@ -91,10 +82,14 @@ const MintPage = () => {
     return false;
   });
 
+  console.log(sig);
+
   return (
     <Container id="mint">
       <Title>Mint a Glizzy</Title>
-      <SubTitle>#/5555 Glizzys left to be gripped at 0.0555 ETH each</SubTitle>
+      <SubTitle>
+        {totalSupply}/5555 Glizzys left to be gripped at 0.0555 ETH each
+      </SubTitle>
       <MintButtonContainer>
         <MintButton>
           <Minus
@@ -115,7 +110,7 @@ const MintPage = () => {
             +
           </Plus>
         </MintButton>
-        <Button onClick={() => void 0} disabled={true}>
+        <Button onClick={() => void 0} disabled={true || isWhitelisted}>
           MINT
         </Button>
       </MintButtonContainer>

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react";
 import { Web3Provider } from "@ethersproject/providers";
 import { useWeb3React } from "@web3-react/core";
@@ -6,14 +5,14 @@ import { useWeb3React } from "@web3-react/core";
 import { Container, ApproveButton } from "./Migrate.styles";
 import { ethers } from "ethers";
 
-import abi from "../../contracts/GlizzyGangABI.json";
+import glizzyGangABI from "../../contracts/GlizzyGangABI.json";
+// import openStoreABI from "../../contracts/OpenStoreABI.json";
 
-const glizzyContract = "";
+const glizzyAddress = "";
 const openStoreAddress = "0x495f947276749ce646f68ac8c248420045cb7b5e";
 
 const Migrate = () => {
-  const { account, active, chainId, library, activate } =
-    useWeb3React<Web3Provider>();
+  const { account, library } = useWeb3React<Web3Provider>();
 
   const [isApprovedForAll, setIsApprovedForAll] = useState(true);
   const [tokenID, setTokenID] = useState("");
@@ -26,16 +25,15 @@ const Migrate = () => {
       (async () => {
         try {
           const contract = new ethers.Contract(
-            openStoreAddress,
-            abi,
+            glizzyAddress,
+            glizzyGangABI,
             library.getSigner()
           );
           const result = await contract.isApprovedForAll(
             account,
             openStoreAddress
           );
-          console.log(result);
-          //   setIsApprovedForAll(result);
+          setIsApprovedForAll(result);
         } catch (e: any) {
           alert(
             e.error?.message.replace("execution reverted: ", "") || e.message
@@ -52,8 +50,8 @@ const Migrate = () => {
   const setApproveForAll = async () => {
     try {
       const contract = new ethers.Contract(
-        openStoreAddress,
-        abi,
+        glizzyAddress,
+        glizzyGangABI,
         library?.getSigner()
       );
 
@@ -75,18 +73,19 @@ const Migrate = () => {
 
   const migrate = async () => {
     try {
-      const contract = new ethers.Contract(
-        openStoreAddress,
-        abi,
-        library?.getSigner()
-      );
-      // cast to BigInt
+      if (library) {
+        const contract = new ethers.Contract(
+          glizzyAddress,
+          glizzyGangABI,
+          library?.getSigner()
+        );
 
-      setLoading(true);
-      const res = await contract.migrate(ethers.BigNumber.from(tokenID));
-      setLoading(false);
-      setSuccess(true);
-      console.log(res);
+        setLoading(true);
+        const res = await contract.migrate(ethers.BigNumber.from(tokenID));
+        setLoading(false);
+        setSuccess(true);
+        console.log(res);
+      }
     } catch (e: any) {
       alert(e.error?.message.replace("execution reverted: ", "") || e.message);
       console.error(e);
