@@ -70,6 +70,7 @@ const Migrate = () => {
         glizzyAddress,
         !isApprovedForAll
       );
+      setIsApprovedForAll(true);
       setLoadingApproval(false);
       console.log(res);
     } catch (e: any) {
