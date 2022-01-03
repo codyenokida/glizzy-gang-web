@@ -101,7 +101,7 @@ const MobileMenu = ({ isOpen, setIsOpen }: any) => {
             <OpenSea
               onClick={() =>
                 window.open(
-                  "https://opensea.io/collection/nftglizzygang",
+                  "https://opensea.io/collection/glizzygang-v2",
                   "_blank"
                 )
               }

@@ -17,7 +17,11 @@ const Landing = () => {
       <SubTitle>
         A collectable NFT project of the best damn hotdogs you've ever seen.
       </SubTitle>
-      <MintButton>Mint a Glizzy</MintButton>
+      <MintButton>
+        <a href="#mint" style={{ textDecoration: "none", color: "black" }}>
+          Mint a Glizzy
+        </a>
+      </MintButton>
       <LeftDog src={leftDog} />
       <RightDog src={rightDog} />
     </Container>
