@@ -82,11 +82,11 @@ const MintPage = () => {
 
   // calculate number of mints left
   const isWhitelisted = walletConfig.find(({ address, signature }) => {
-    if (account?.toLowerCase() === address) {
-      sig = signature;
-      return true;
-    }
-    return false;
+      if (account?.toLowerCase() === address.toLowerCase()) {
+        sig = signature;
+        return true;
+      }
+      return false;
   });
 
   const whitelistMint = async () => {

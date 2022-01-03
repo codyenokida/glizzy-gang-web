@@ -8969,6 +8969,16 @@ const walletConfig: any[] = [
     signature:
       "0x2199cb31b4069d6186b60f1605cfb1cf915ac6cd32a4749ea479c584e1e5470108e2513df8450851d974931a8b650e9644efd1892f5e7a00af71d3668a2d056c1c",
   },
+  {
+    address: "0xaf78275fe7c3dd9fe1698963942f548a3cd32be2",
+    signature:
+      "0x64afb6e95905e24091a6a1767cb3889d59bda98938377d2cbd52ec03c03058990bb42c9aa94097ac2a70cbd9be31d67a9161b9bd72bf8c8b1df72cc7c552ee911c",
+  },
+  {
+    address: "0xcc6d4546f57ae7d37a2acb17d07228e0d8439e6c",
+    signature:
+      "0xae37a8973844634c0600a00d6cb4474952290440ad6bf32e1a3268d66ae6265e51dadd94d9c076a7e527951518e223e92f5571dad307d07ea0b8fbf9aefec8011c",
+  },
 ];
 
 export default walletConfig;
