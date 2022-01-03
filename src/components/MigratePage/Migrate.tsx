@@ -95,16 +95,13 @@ const Migrate = () => {
         );
 
         setLoading(true);
-        const res = await contract.migrate(ethers.BigNumber.from(tokenID), {
+        await contract.migrate(ethers.BigNumber.from(tokenID), {
           gasLimit: ethers.utils.hexlify(
-            Math.floor(
-              estimatedGasLimit.mul(ethers.BigNumber.from(1.2)).toNumber()
-            )
+            Math.floor(estimatedGasLimit.toNumber() * 1.2)
           ),
         });
         setLoading(false);
         setSuccess(true);
-        console.log(res);
       }
     } catch (e: any) {
       alert(e.error?.message.replace("execution reverted: ", "") || e.message);
