@@ -1,9 +1,18 @@
 import { useEffect, useState } from "react";
 import { Web3Provider } from "@ethersproject/providers";
 import { useWeb3React } from "@web3-react/core";
-
-import { Container, ApproveButton } from "./Migrate.styles";
 import { ethers } from "ethers";
+
+import {
+  Container,
+  ApproveButton,
+  Title,
+  LeftDog,
+  RightDog,
+} from "./Migrate.styles";
+
+import leftDog from "../../assets/leftDog.png";
+import rightDog from "../../assets/rightDog.png";
 
 import glizzyGangABI from "../../contracts/GlizzyGangABI.json";
 // import openStoreABI from "../../contracts/OpenStoreABI.json";
@@ -14,7 +23,7 @@ const openStoreAddress = "0x495f947276749ce646f68ac8c248420045cb7b5e";
 const Migrate = () => {
   const { account, library } = useWeb3React<Web3Provider>();
 
-  const [isApprovedForAll, setIsApprovedForAll] = useState(true);
+  const [isApprovedForAll, setIsApprovedForAll] = useState(false);
   const [tokenID, setTokenID] = useState("");
   const [loading, setLoading] = useState(false);
   const [loadingApproval, setLoadingApproval] = useState(false);
@@ -97,8 +106,9 @@ const Migrate = () => {
 
   return (
     <Container>
-      <h1>
-        Your GLIZZY is{" "}
+      <Title>Migrate Your Glizzys</Title>
+      <h1 style={{}}>
+        Your GLIZZYS are{" "}
         {isApprovedForAll
           ? "approved for migration."
           : "not approved for migration."}
@@ -111,33 +121,25 @@ const Migrate = () => {
       </ApproveButton>
       {isApprovedForAll && (
         <>
-          <h1 style={{ marginTop: "2rem", marginBottom: "0.5rem" }}>
-            Migrate your GLIZZYS
-          </h1>
           <p style={{ textAlign: "center" }}>
-            Find your Gensis token ID by going to your OpenSea link:
+            Find your Glizzy token ID by going to your OpenSea link:
             <br />
-            {
-              "https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/"
-            }
+            <br />
+            {"https://opensea.io/assets/.../"}
             <strong>token_id</strong>
-            <br />
-            An example of a token id would be:{" "}
-            <strong>
-              16749640924335120508167920442379361950322061727384327151086078383415363633153
-            </strong>
           </p>
+          <h2>Enter your token ID:</h2>
           <input
             style={{
               padding: "1rem",
             }}
             value={tokenID}
-            placeholder="token id"
+            placeholder="16749640924335120508167920442379361950322061727384327151086078383415363633153"
             onChange={(e) => setTokenID(e.target.value)}
           />
-          <h2>Enter your token ID:</h2>
           <ApproveButton
             loading={loading || !tokenID.length || tokenID.length !== 77}
+            style={{ marginTop: "2rem" }}
             onClick={() => {
               migrate();
             }}
@@ -147,6 +149,8 @@ const Migrate = () => {
           {success && <p>Success!</p>}
         </>
       )}
+      <LeftDog src={leftDog} />
+      <RightDog src={rightDog} />
     </Container>
   );
 };
