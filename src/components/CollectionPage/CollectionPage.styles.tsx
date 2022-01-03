@@ -51,7 +51,6 @@ export const TextContainer = styled.div`
 export const Description = styled.div``;
 
 export const ImageContainer = styled.img`
-  flex-basis: 100%;
   width: 33rem;
   height: 28rem;
   margin-right: 4rem;
