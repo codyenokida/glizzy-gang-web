@@ -79,6 +79,7 @@ const MintPage = () => {
   }, [account, library]);
 
   let sig: string = "";
+
   // calculate number of mints left
   const isWhitelisted = walletConfig.find(({ address, signature }) => {
     if (account?.toLowerCase() === address) {
@@ -104,7 +105,7 @@ const MintPage = () => {
 
       setLoading(true);
       await contract.presaleMint(
-        0.0555 * mintNum,
+        ethers.BigNumber.from(0.0555 * mintNum),
         sig,
         ethers.BigNumber.from(mintNum),
         {
