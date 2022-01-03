@@ -17,7 +17,7 @@ import rightDog from "../../assets/rightDog.png";
 import glizzyGangABI from "../../contracts/GlizzyGangABI.json";
 // import openStoreABI from "../../contracts/OpenStoreABI.json";
 
-const glizzyAddress = "";
+const glizzyAddress = "0xA727ceA448c740fbF827574026395Cf7e5f973c1";
 const openStoreAddress = "0x495f947276749ce646f68ac8c248420045cb7b5e";
 
 const Migrate = () => {

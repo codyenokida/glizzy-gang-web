@@ -39,7 +39,6 @@ const MintPage = () => {
   useEffect(() => {
     if (library && account) {
       try {
-        // update ui every 10 seconds
         const contract = new ethers.Contract(
           contractAddress,
           abi,
@@ -82,7 +81,20 @@ const MintPage = () => {
     return false;
   });
 
-  console.log(sig);
+  // const whitelistMint = async () => {
+  //   try {
+  //     const contract = new ethers.Contract(
+  //       contractAddress,
+  //       abi,
+  //       library?.getSigner()
+  //     );
+  //     await contract.presaleMint(
+  //       0.0555 * mintNum,
+  //       sig,
+  //       ethers.BigNumber.from(mintNum)
+  //     );
+  //   } catch (e) {}
+  // };
 
   return (
     <Container id="mint">
@@ -110,7 +122,7 @@ const MintPage = () => {
             +
           </Plus>
         </MintButton>
-        <Button onClick={() => void 0} disabled={true || isWhitelisted}>
+        <Button onClick={() => void 0} disabled={true || !isWhitelisted || !sig}>
           MINT
         </Button>
       </MintButtonContainer>
