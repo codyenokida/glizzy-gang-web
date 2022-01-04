@@ -123,7 +123,7 @@ const MintPage = () => {
           <Plus
             onClick={() => {
               setMintNum(
-                mintNum + 1 < 5 - numMinted ? mintNum + 1 : 5 - numMinted
+                mintNum + 1 < 10 - numMinted ? mintNum + 1 : 10 - numMinted
               );
             }}
           >
