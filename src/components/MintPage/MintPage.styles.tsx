@@ -106,11 +106,12 @@ export const Num = styled.div`
 `;
 
 type ButtonProps = {
-  disabled: boolean;
+  disabled?: boolean;
 };
 
 export const Button = styled.div<ButtonProps>`
   margin-top: 1rem;
+  margin-bottom: 5rem;
 
   display: flex;
   align-items: center;

@@ -19,7 +19,7 @@ const Landing = () => {
       </SubTitle>
       <MintButton>
         <a href="#mint" style={{ textDecoration: "none", color: "black" }}>
-          Mint a Glizzy
+          Buy a Glizzy
         </a>
       </MintButton>
       <LeftDog src={leftDog} />
