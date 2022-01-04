@@ -16,7 +16,6 @@ import {
   SubTitle,
   Title,
 } from "./MintPage.styles";
-import walletConfig from "../../constants/walletConfig";
 import abi from "../../contracts/GlizzyGangABI.json";
 
 import leftDog from "../../assets/mintGlizzyOne.png";
@@ -78,18 +77,7 @@ const MintPage = () => {
     }
   }, [account, library]);
 
-  let sig: string = "";
-
-  // calculate number of mints left
-  const isWhitelisted = walletConfig.find(({ address, signature }) => {
-    if (account?.toLowerCase() === address.toLowerCase()) {
-      sig = signature;
-      return true;
-    }
-    return false;
-  });
-
-  const whitelistMint = async () => {
+  const publicMint = async () => {
     try {
       const contract = new ethers.Contract(
         contractAddress,
@@ -97,14 +85,12 @@ const MintPage = () => {
         library?.getSigner()
       );
 
-      const estimatedGasLimit = await contract.estimateGas.presaleMint(
-        ethers.utils.arrayify(sig),
-        mintNum,
-        { value: toAtomicString(0.0555 * mintNum, 18) }
-      );
+      const estimatedGasLimit = await contract.estimateGas.mint(mintNum, {
+        value: toAtomicString(0.0555 * mintNum, 18),
+      });
 
       setLoading(true);
-      await contract.presaleMint(ethers.utils.arrayify(sig), mintNum, {
+      await contract.mint(mintNum, {
         value: toAtomicString(0.0555 * mintNum, 18),
         gasLimit: ethers.utils.hexlify(
           Math.floor(estimatedGasLimit.toNumber() * 1.2)
@@ -117,33 +103,6 @@ const MintPage = () => {
       setLoading(false);
     }
   };
-
-  // const publicPresale = async () => {
-  //   try {
-  //     const contract = new ethers.Contract(
-  //       contractAddress,
-  //       abi,
-  //       library?.getSigner()
-  //     );
-
-  //     const estimatedGasLimit = await contract.estimateGas.mint(mintNum, {
-  //       value: toAtomicString(0.0555 * mintNum, 18),
-  //     });
-
-  //     setLoading(true);
-  //     await contract.mint(mintNum, {
-  //       value: toAtomicString(0.0555 * mintNum, 18),
-  //       gasLimit: ethers.utils.hexlify(
-  //         Math.floor(estimatedGasLimit.toNumber() * 1.2)
-  //       ),
-  //     });
-  //     setLoading(false);
-  //   } catch (e: any) {
-  //     alert(e.error?.message.replace("execution reverted: ", "") || e.message);
-  //     console.error(e);
-  //     setLoading(false);
-  //   }
-  // };
 
   return (
     <Container id="mint">
@@ -172,9 +131,9 @@ const MintPage = () => {
           </Plus>
         </MintButton>
         <Button
-          onClick={() => whitelistMint()}
+          onClick={() => publicMint()}
           // disabled={false}
-          disabled={!isWhitelisted || !sig || loading || totalSupply === 5555}
+          disabled={loading || totalSupply === 5555}
         >
           MINT
         </Button>
