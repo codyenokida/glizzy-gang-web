@@ -29,7 +29,14 @@ const ClaimPage = () => {
           You will be able to burn your $MUSTARD for Weenie Warriors, and if you
           have a trait you don't like, for a trait exchange!
         </Paragraph>
-        <ClaimButton>Claim $MUSTARD</ClaimButton>
+        <ClaimButton>
+          <a
+            href="#claim-mustard"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            Claim $MUSTARD
+          </a>
+        </ClaimButton>
         <ClaimDog src={claimDog} />
       </TextContainer>
     </Container>

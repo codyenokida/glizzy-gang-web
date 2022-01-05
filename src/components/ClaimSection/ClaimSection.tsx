@@ -63,7 +63,9 @@ const ClaimSection = () => {
       mustardContract
         .getClaimable(account)
         .then((num: ethers.BigNumber) => {
-          setClaimable(num.toNumber());
+          setClaimable(
+            parseFloat(parseFloat(ethers.utils.formatUnits(num, 18)).toFixed(3))
+          );
         })
         .catch((e: any) => console.error);
 
@@ -71,7 +73,9 @@ const ClaimSection = () => {
       mustardContract
         .balanceOf(account)
         .then((num: ethers.BigNumber) => {
-          setMustardCount(num.toNumber());
+          setMustardCount(
+            parseFloat(parseFloat(ethers.utils.formatUnits(num, 18)).toFixed(3))
+          );
         })
         .catch((e: any) => console.error);
     }
@@ -102,7 +106,7 @@ const ClaimSection = () => {
   };
 
   return (
-    <Container id="about">
+    <Container id="claim-mustard">
       <Tooltip>To see values, your Wallet must be connected.</Tooltip>
       <SubContainer>
         <ImageContainer src={miniGlizzy} />
