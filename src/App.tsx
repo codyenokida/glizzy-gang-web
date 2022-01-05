@@ -28,6 +28,7 @@ import MintPage from "./components/MintPage/MintPage";
 import { Routes, Route } from "react-router-dom";
 import ClaimPage from "./components/ClaimPage/ClaimPage";
 import Migrate from "./components/MigratePage/Migrate";
+import ClaimSection from "./components/ClaimSection/ClaimSection";
 
 function App() {
   // Redux
@@ -133,7 +134,16 @@ function App() {
             </>
           }
         />
-        <Route path="/claim" element={<ClaimPage />} />
+        <Route
+          path="/claim"
+          element={
+            <>
+              <ClaimPage />
+              <Divider />
+              <ClaimSection />
+            </>
+          }
+        />
         <Route path="migrate" element={<Migrate />} />
       </Routes>
 
