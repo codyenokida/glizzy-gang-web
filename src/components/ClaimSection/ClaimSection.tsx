@@ -5,12 +5,9 @@ import { Web3Provider } from "@ethersproject/providers";
 
 import {
   Container,
-  ImageContainer,
-  SubContainer,
   TextContainer,
   Title,
   Tooltip,
-  Line,
   Num,
   ClaimButton,
   BottomContainer,
@@ -22,7 +19,6 @@ import {
   MustardBottleFlipped,
 } from "./ClaimSection.styles";
 
-import miniGlizzy from "../../assets/miniGlizzy.png";
 import mustardABI from "../../contracts/MustardABI.json";
 import glizzyGangABI from "../../contracts/GlizzyGangABI.json";
 
