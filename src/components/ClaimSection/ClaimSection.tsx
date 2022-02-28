@@ -17,11 +17,16 @@ import {
   SubTitle,
   Content,
   Section,
+  NumContainer,
+  MustardBottle,
+  MustardBottleFlipped,
 } from "./ClaimSection.styles";
 
 import miniGlizzy from "../../assets/miniGlizzy.png";
 import mustardABI from "../../contracts/MustardABI.json";
 import glizzyGangABI from "../../contracts/GlizzyGangABI.json";
+
+import mustard from "../../assets/mustard-bottle.png";
 
 const mustardAddress = "0xe4a7ffC3124a7eFdC027C4472204C8351fbEa27c";
 const glizzyAddress = "0xA727ceA448c740fbF827574026395Cf7e5f973c1";
@@ -108,17 +113,17 @@ const ClaimSection = () => {
   return (
     <Container id="claim-mustard">
       <Tooltip>To see values, your Wallet must be connected.</Tooltip>
-      <SubContainer>
-        <ImageContainer src={miniGlizzy} />
-        <TextContainer>
-          <Title>You can claim:</Title>
-          <Num>{claimable} $MUSTARD</Num>
-          <ClaimButton loading={loading} onClick={() => claim()}>
-            Claim Now
-          </ClaimButton>
-        </TextContainer>
-        <Line />
-      </SubContainer>
+      <TextContainer>
+        <Title>You can claim:</Title>
+        <NumContainer>
+          <MustardBottle src={mustard} />
+          <Num>{claimable} $Mustard</Num>
+          <MustardBottleFlipped src={mustard} />
+        </NumContainer>
+        <ClaimButton loading={loading} onClick={() => claim()}>
+          Claim Now
+        </ClaimButton>
+      </TextContainer>
       <BottomContainer>
         <Section>
           <SubTitle>You own:</SubTitle>

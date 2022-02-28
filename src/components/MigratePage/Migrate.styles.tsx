@@ -32,7 +32,7 @@ export const ApproveButton = styled.div<ApproveButtonProps>`
   transition: 0.2s;
   box-shadow: 0 4px 12px rgb(0, 0, 0, 0.32);
   color: black;
-  font-family: "Rubik-Bold";
+  font-family: "Outfit-Bold";
   cursor: pointer;
   z-index: 100;
 

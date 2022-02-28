@@ -10,7 +10,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  background: radial-gradient(#04a5f5, #055ca8);
+  background: #35354a;
   padding: 8rem 0 4rem 0;
 
   @media ${breakPoints.tabletLandscapeUp} {
@@ -24,32 +24,15 @@ export const Container = styled.div`
   }
 `;
 
-export const GlizzyCart = styled.img`
-  width: 30rem;
-  height: 29.7rem;
-  margin: 0 4rem 0 2rem;
-
-  @media ${breakPoints.tabletLandscapeUp} {
-    flex-direction: column;
-    width: 30rem;
-    height: 29.7rem;
-    margin: 0;
-  }
-
-  @media ${breakPoints.tabletPortraitUp} {
-    flex-direction: column;
-    width: 20rem;
-    height: 19.7rem;
-    margin: 0;
-  }
-`;
-
 export const TextContainer = styled.div`
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 
   @media ${breakPoints.tabletLandscapeUp} {
-    text-align: center;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,11 +51,11 @@ export const TextContainer = styled.div`
 
 export const Title = styled.h1`
   font-size: 5rem;
-  text-shadow: 0.5rem 0.5rem black;
   font-family: "Knewave-Regular";
-  color: #ffec00;
+  color: #ffffff;
   margin-top: 0;
   margin-bottom: 3.5rem;
+  font-weight: 400;
 
   @media ${breakPoints.tabletLandscapeUp} {
     font-size: 3.5rem;
@@ -81,12 +64,16 @@ export const Title = styled.h1`
 
   @media ${breakPoints.tabletPortraitUp} {
     font-size: 3.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
     padding: 0 0.5rem;
   }
 `;
 
 export const Paragraph = styled.p`
-  width: 37rem;
+  text-align: left;
+  width: 50%;
+  padding: 0 25%;
 
   @media ${breakPoints.tabletLandscapeUp} {
     width: 80%;
@@ -111,9 +98,8 @@ export const ClaimButton = styled.div`
   border-radius: 0.5rem;
   font-weight: 700;
   transition: 0.2s;
-  box-shadow: 0 4px 12px rgb(0, 0, 0, 0.32);
   color: black;
-  font-family: "Rubik-Bold";
+  font-family: "Outfit-Bold";
   cursor: pointer;
 
   &:hover {
@@ -131,18 +117,14 @@ export const ClaimButton = styled.div`
   }
 `;
 
-export const ClaimDog = styled.img`
+export const MustardBackground = styled.img`
   position: absolute;
-  right: 0;
-  bottom: -2rem;
-  width: 13rem;
-  height: 29.2rem;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  content: url("images/mustard-background.png");
 
-  @media ${breakPoints.tabletLandscapeUp} {
-    display: none;
-  }
-
-  @media ${breakPoints.tabletPortraitUp} {
-    display: none;
+  @media ${breakPoints.phoneOnly} {
+    content: url("images/mustard-background-mobile.png");
   }
 `;

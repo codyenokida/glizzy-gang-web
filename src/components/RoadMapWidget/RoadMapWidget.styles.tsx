@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakPoints from "../../constants/breakpoints";
 
 export const Container = styled.div`
   display: flex;
@@ -17,9 +18,13 @@ export const TitleContainer = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-family: "Knewave-Regular";
   margin: 0 1.5rem;
+
+  @media ${breakPoints.phoneOnly} {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Weiner = styled.div`
@@ -34,3 +39,30 @@ export const Weiner = styled.div`
 export const Weiner180 = styled(Weiner)`
   transform: scaleX(-1);
 `;
+
+export const SubContainer = styled.div`
+  display: flex;
+  flex-diretion: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const LeftImage = styled.img`
+  width: 9rem;
+  margin-right: 3rem;
+
+  @media ${breakPoints.phoneOnly} {
+    display: none;
+  }
+`;
+
+export const RightImage = styled.img`
+  width: 9rem;
+  margin-left: 3rem;
+
+  @media ${breakPoints.phoneOnly} {
+    display: none;
+  }
+`;
+
+export const InfoContainer = styled.div``;

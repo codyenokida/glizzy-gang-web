@@ -1,21 +1,15 @@
-import {
-  Container,
-  Title,
-  TitleContainer,
-  Weiner,
-  Weiner180,
-} from "./RoadMapWidget.styles";
+import { Container, InfoContainer, LeftImage, RightImage, SubContainer, Title } from "./RoadMapWidget.styles";
 
-const RoadMapWidget = ({ title, children }: any) => {
+const RoadMapWidget = ({ phase, left, right, children }: any) => {
   return (
     <Container>
-      <TitleContainer>
-        <Weiner />
-        <Title>{title}</Title>
-        <Weiner180 />
-      </TitleContainer>
+      <Title>{phase}</Title>
       <br />
-      {children}
+      <SubContainer>
+        <LeftImage src={left} />
+        <InfoContainer>{children}</InfoContainer>
+        <RightImage src={right} />
+      </SubContainer>
     </Container>
   );
 };

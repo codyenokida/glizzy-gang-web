@@ -1,81 +1,82 @@
 import RoadMapWidget from "../RoadMapWidget/RoadMapWidget";
-import {
-  Container,
-  LeftDog,
-  RightDog,
-  SubContainer,
-  Title,
-} from "./RoadMap.styles";
+import { Container, SubContainer, Title, RedactedImage } from "./RoadMap.styles";
 
-import leftDog from "../../assets/roadGlizzyOne.png";
-import rightDog from "../../assets/roadGlizzyTwo.png";
+import leftDog from "../../assets/leftRMGlizzy.png";
+import rightDog from "../../assets/rightRMglizzy.png";
+import voxel from "../../assets/voxel.png";
+import cart from "../../assets/RMcart.png";
+import redacted from "../../assets/redacted.png";
+import BulletPoint from "../RoadMapWidget/subcomponent/BulletPoint/BulletPoint";
+
+const phaseOne = [
+  {
+    title: "Mint",
+    description: "5555 Glizzys SOLD OUT.",
+  },
+  {
+    title: "$MUSTARD",
+    description:
+      "Active after reveal, $Mustard is the main token to be used in the Glizzyverse and is essential to upcoming plans.",
+  },
+  {
+    title: "Charity Donations",
+    description:
+      "29.4E of charity donations. To be split between 2 charities as voted for by the community",
+  },
+  {
+    title: "Weenie Warriors!",
+    description:
+      "3333 Weenie Warriors ready to go into a new Weenie Warrior collection. But, they can only be created through our breeding system… 2 Glizzys + burn 1000 $Mustard. Don't worry, the Glizzys stay with you. They don’t get burnt.",
+  },
+];
+
+const phaseTwo = [
+  {
+    title: "Voxel Glizzys!",
+    description:
+      "Voxels. Yup. 3D hotdogs to run around The Sandbox in. Each Glizzy owner will be able to mint a voxel Glizzy, only using $Mustard.",
+  },
+  {
+    title: "Sandbox land",
+    description:
+      "We will be creating a Glizzy paradise to run games and !chill with your Glizzy for the world to see.",
+  },
+  {
+    title: "The Hotdog Cart",
+    description:
+      "The Sandbox hotdog cart is the place to shop for all your metaverse needs. Using $Mustard, you will be able to purchase new items and assets for your Glizzy.",
+  },
+];
 
 const RoadMap = () => {
   return (
     <Container id="roadmap">
       <Title>Glizzys on the road</Title>
       <SubContainer>
-        <RoadMapWidget title="Pre-Mint Phase">
-          - Crowd sourced traits collected by the community
-          <br />
-          <br />
-          - Launch of Glizzy Gang
-          <br />
-          <br />
-          - 10 Legendaries to be randomly minted within the collection
-          <br />
-          <br />
-          - Collection of 5555 Glizzys
-          <br />
-          <br />
-          - Glizzy’d out in the glizzard
-          <br />
-          <br />
-          - !chill
-          <br />
-          <br />
+        <RoadMapWidget phase="Phase 1" left={leftDog} right={rightDog}>
+          {phaseOne.map((items) => {
+            return (
+              <BulletPoint
+                title={items.title}
+                description={items.description}
+              />
+            );
+          })}
         </RoadMapWidget>
-        <RoadMapWidget title="Post-Mint Phase">
-          - $MUSTARD will be active after mint, and will be the main token used
-          in the Glizzy ecosystem.
-          <br />
-          <br />
-          - Token will generate passive yield without having the need to stake &
-          able to claim at any time.
-          <br />
-          <br />
-          - Glizzy Merch: Rock your Glizzy, loud and proud!
-          <br />
-          <br />
-          - Donation to charities voted on by the community
-          <br />
-          <br />
+        <RoadMapWidget phase="Phase 2" left={voxel} right={cart}>
+          {phaseTwo.map((items) => {
+            return (
+              <BulletPoint
+                title={items.title}
+                description={items.description}
+              />
+            );
+          })}
         </RoadMapWidget>
-        <RoadMapWidget title="Beyond">
-          - Voxel Glizzys
-          <br />
-          <br />
-          - Sandbox Land for all Glizzy Owners
-          <br />
-          <br />
-          - Hotdog Cart for unique items and traits in the sandbox.
-          <br />
-          <br />
-          - Airdrops for holders such as potential Glizzy Pets (Glizzy Dogs),
-          etc.
-          <br />
-          <br />
-          - Glizzy Vendor: Burn your $MUSTARD for Weenie Warriors and
-          potentially something else!?
-          <br />
-          <br />
-          - Have a trait you don’t like? Burn $MUSTARD for a trait exchange!
-          <br />
-          <br />
+        <RoadMapWidget phase="Phase 3">
+          <RedactedImage src={redacted} />
         </RoadMapWidget>
       </SubContainer>
-      <LeftDog src={leftDog} />
-      <RightDog src={rightDog} />
     </Container>
   );
 };

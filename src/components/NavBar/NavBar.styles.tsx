@@ -3,7 +3,11 @@ import { Link as RouterLink } from "react-router-dom";
 
 import breakPoints from "../../constants/breakpoints";
 
-export const NavigationBar = styled.nav`
+type NavigationBarProps = {
+  dark: boolean;
+};
+
+export const NavigationBar = styled.nav<NavigationBarProps>`
   position: absolute;
   width: 100%;
   display: flex;
@@ -11,13 +15,14 @@ export const NavigationBar = styled.nav`
   justify-content: space-between;
   padding: 1rem 0;
   z-index: 1000;
+  color: ${(props) => (props.dark ? "#202020" : "white")};
 `;
 
 export const LinkContainer = styled.ul`
   display: flex;
   list-style-type: none;
   overflow: hidden;
-  font-family: "Rubik-Bold";
+  font-family: "Outfit-Bold";
   @media ${breakPoints.phoneOnly} {
     display: none;
   }
@@ -74,21 +79,19 @@ export const SocialLink = styled.div`
   }
 `;
 
-export const WalletButton = styled.div`
+export const WalletButton = styled.div<NavigationBarProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 9rem;
   height: 2.5rem;
-  background-color: #f7d83c;
+  background-color: ${(props) => (props.dark ? "#202020" : "#f7d83c")};
   border-radius: 0.5rem;
-  color: black;
+  color: ${(props) => (props.dark ? "white" : "black")};
   font-weight: 700;
-  font-family: "Rubik-Bold";
+  font-family: "Outfit-Bold";
   cursor: pointer;
   transition: 0.2s;
-
-  box-shadow: 0 4px 12px rgb(0, 0, 0, 0.32);
 
   &:hover {
     opacity: 0.9;
@@ -98,10 +101,13 @@ export const WalletButton = styled.div`
   }
 `;
 
-export const OpenSea = styled.div`
+export const OpenSea = styled.div<NavigationBarProps>`
   width: 2rem;
   height: 2rem;
-  background-image: url("images/opensea-logo.png");
+  background-image: ${(props) =>
+    props.dark
+      ? 'url("images/opensea-logo-black.png")'
+      : 'url("images/opensea-logo.png")'};
   background-position: left center;
   background-size: 2rem 2rem;
   background-repeat: no-repeat;
@@ -119,12 +125,12 @@ export const HamburgerMenuContainer = styled.div`
   }
 `;
 
-export const Anchor = styled.a`
+export const Anchor = styled.a<NavigationBarProps>`
   text-decoration: none;
-  color: white;
+  color: ${(props) => (props.dark ? "#202020" : "white")};
 `;
 
-export const StyledRouterLink = styled(RouterLink)`
+export const StyledRouterLink = styled(RouterLink)<NavigationBarProps>`
   text-decoration: none;
-  color: white;
+  color: ${(props) => (props.dark ? "#202020" : "white")};
 `;

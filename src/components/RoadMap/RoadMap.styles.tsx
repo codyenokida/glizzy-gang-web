@@ -9,31 +9,35 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(30deg, #202020, #4c4c4c);
-  padding: 4rem 0;
+  background: #455066;
+  padding: 0 0 4rem 0;
 
   @media ${breakPoints.phoneOnly} {
-    padding: 4rem 0 10rem 0;
+    padding: 4rem 0 0 0;
   }
 `;
 
 export const SubContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 20%;
+  padding: 0 10%;
+
   @media ${breakPoints.phoneOnly} {
-    padding: 0 5%;
+    padding: 0 2%;
+    width: 96%;
   }
 `;
 
 export const Title = styled.h1`
   font-size: 5rem;
-  text-shadow: 0.5rem 0.5rem black;
   font-family: "Knewave-Regular";
   margin-top: 0;
+  font-weight: 400;
+  margin-left: 4.5rem;
+  margin-right: 4.5rem;
 
   @media ${breakPoints.phoneOnly} {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     padding: 0 0.5rem;
   }
 `;
@@ -65,10 +69,7 @@ export const LeftDog = styled.img`
   }
 
   @media ${breakPoints.phoneOnly} {
-    left: -2rem;
-    bottom: 0;
-    width: 10rem;
-    height: 11.6rem;
+    display: none;
   }
 `;
 
@@ -87,9 +88,14 @@ export const RightDog = styled.img`
   }
 
   @media ${breakPoints.phoneOnly} {
-    right: -2rem;
-    bottom: 0;
-    width: 10rem;
-    height: 11.6rem;
+    display: none;
+  }
+`;
+
+export const RedactedImage = styled.img`
+  width: 30.625rem;
+
+  @media ${breakPoints.phoneOnly} {
+    width: 15.625rem;
   }
 `;

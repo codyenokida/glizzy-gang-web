@@ -27,7 +27,7 @@ const truncateEthAddress = function (address: string) {
   return match[1] + "\u2026" + match[2];
 };
 
-const NavBar = ({ onClick, walletAddress }: any) => {
+const NavBar = ({ onClick, walletAddress, dark, chainId }: any) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const location = useLocation();
@@ -35,9 +35,10 @@ const NavBar = ({ onClick, walletAddress }: any) => {
 
   return (
     <>
-      <NavigationBar>
+      <NavigationBar dark={dark}>
         <LeftContainer>
           <GlizzyLogo
+            dark={dark}
             onClick={(e) => {
               e.preventDefault();
               navigate("/");
@@ -46,34 +47,52 @@ const NavBar = ({ onClick, walletAddress }: any) => {
           <LinkContainer>
             <Link>
               {location.pathname !== "/" ? (
-                <StyledRouterLink to="/">Mint</StyledRouterLink>
+                <StyledRouterLink to="/" dark={dark}>
+                  Mint
+                </StyledRouterLink>
               ) : (
-                <Anchor href="#mint">Mint</Anchor>
+                <Anchor href="#mint" dark={dark}>
+                  Mint
+                </Anchor>
               )}
             </Link>
             <Link>
               {location.pathname !== "/" ? (
-                <StyledRouterLink to="/">About</StyledRouterLink>
+                <StyledRouterLink to="/" dark={dark}>
+                  About
+                </StyledRouterLink>
               ) : (
-                <Anchor href="#about">About</Anchor>
+                <Anchor href="#about" dark={dark}>
+                  About
+                </Anchor>
               )}
             </Link>
             <Link>
               {location.pathname !== "/" ? (
-                <StyledRouterLink to="/">Roadmap</StyledRouterLink>
+                <StyledRouterLink to="/" dark={dark}>
+                  Roadmap
+                </StyledRouterLink>
               ) : (
-                <Anchor href="#roadmap">Roadmap</Anchor>
+                <Anchor href="#roadmap" dark={dark}>
+                  Roadmap
+                </Anchor>
               )}
             </Link>
             <Link>
               {location.pathname !== "/" ? (
-                <StyledRouterLink to="/">Team</StyledRouterLink>
+                <StyledRouterLink to="/" dark={dark}>
+                  Team
+                </StyledRouterLink>
               ) : (
-                <Anchor href="#team">Team</Anchor>
+                <Anchor href="#team" dark={dark}>
+                  Team
+                </Anchor>
               )}
             </Link>
             <Link>
-              <StyledRouterLink to="/claim">$MUSTARD</StyledRouterLink>
+              <StyledRouterLink to="/claim" dark={dark}>
+                $MUSTARD
+              </StyledRouterLink>
             </Link>
           </LinkContainer>
         </LeftContainer>
@@ -103,12 +122,17 @@ const NavBar = ({ onClick, walletAddress }: any) => {
                     "_blank"
                   )
                 }
+                dark={dark}
               />
             </SocialLink>
           </SocialsContainer>
-          <WalletButton onClick={() => onClick(true)}>
-            {walletAddress
-              ? truncateEthAddress(walletAddress)
+          <WalletButton onClick={() => onClick(true)} dark={dark}>
+            {chainId === 1
+              ? walletAddress
+                ? truncateEthAddress(walletAddress)
+                : "Connect Wallet"
+              : walletAddress
+              ? "Wrong Network"
               : "Connect Wallet"}
           </WalletButton>
           <HamburgerMenuContainer>

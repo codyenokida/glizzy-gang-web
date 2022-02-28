@@ -8,9 +8,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  background: #f7d83c;
+  background: #21212c;
   padding: 2rem 0;
-  color: black;
+  color: white;
 `;
 
 export const LeftContainer = styled.div`
@@ -29,6 +29,7 @@ export const BrandingContainer = styled.div`
 `;
 
 export const Title = styled.div`
+  font-family: "Knewave-Regular";
   font-size: 2rem;
   margin: 0;
   margin-left: 1rem;
@@ -49,7 +50,7 @@ export const Copyright = styled.div`
 export const OpenSea = styled.div`
   width: 2rem;
   height: 2rem;
-  background-image: url("images/opensea-logo-black.png");
+  background-image: url("images/opensea-logo.png");
   background-position: left center;
   background-size: 2rem 2rem;
   background-repeat: no-repeat;
@@ -81,10 +82,10 @@ export const SocialLink = styled.div`
   }
 `;
 
-export const GlizzyLogoBlack = styled.div`
+export const GlizzyLogo = styled.div`
   width: 3rem;
   height: 3rem;
-  background-image: url("images/glizzy-logo-black.png");
+  background-image: url("images/glizzy-logo.png");
   background-position: left center;
   background-size: 3rem 3rem;
   background-repeat: no-repeat;

@@ -5,26 +5,26 @@
 }
 
 @font-face {
-  font-family: "Rubik-Bold";
-  src: local("Rubik"),
-    url(./fonts/Rubik/static/Rubik-Bold.ttf) format("truetype");
+  font-family: "Outfit-Bold";
+  src: local("Outfit"),
+    url(./fonts/Outfit/static/Outfit-Bold.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: "Rubik-Regular";
-  src: local("Rubik"),
-    url(./fonts/Rubik/static/Rubik-Regular.ttf) format("truetype");
+  font-family: "Outfit-Regular";
+  src: local("Outfit"),
+    url(./fonts/Outfit/static/Outfit-Regular.ttf) format("truetype");
 }
 
 body {
   margin: 0;
-  font-family: "Rubik-Regular";
+  font-family: "Outfit-Regular";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: "Rubik-Regular";
+  font-family: "Outfit-Regular";
 }
 
 html,

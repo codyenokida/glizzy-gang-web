@@ -7,7 +7,14 @@ import {
   TwitterHandle,
 } from "./TeamMember.styles";
 
-const TeamMember = ({ title, twitter, img, description, twitterLink }: any) => {
+const TeamMember = ({
+  title,
+  twitter,
+  img,
+  description,
+  twitterLink,
+  name,
+}: any) => {
   return (
     <Container>
       <Title>{title}</Title>
@@ -17,6 +24,7 @@ const TeamMember = ({ title, twitter, img, description, twitterLink }: any) => {
       <TwitterHandle onClick={() => window.open(twitterLink, "_blank")}>
         {twitter}
       </TwitterHandle>
+      <Description>{name},</Description>
       <Description>{description}</Description>
     </Container>
   );
