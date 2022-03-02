@@ -11,10 +11,10 @@ import mustardBackground from "../../assets/mustard-background.png";
 
 const ClaimPage = () => {
   return (
-    <Container id="about">
+    <Container>
       <MustardBackground src={mustardBackground} />
       <TextContainer>
-        <Title>$MUSTARD</Title>
+        <Title>Mustard</Title>
         <Paragraph>
           <strong>$Mustard</strong> is the Glizzyverse utility token and
           essential for what’s to come! Why?
@@ -26,9 +26,9 @@ const ClaimPage = () => {
           time.
           <br />
           <br />
-          <strong>What's to come?</strong> You will be able to burn your
-          $Mustard for Weenie Warriors, Voxels and if you have a trait you don't
-          like, for a trait exchange!
+          <strong>What's to come?</strong>
+          <br /> You will be able to burn your $Mustard to breed Weenie Warriors
+          and soon to mint your Voxel Glizzys!
         </Paragraph>
         <ClaimButton>
           <a

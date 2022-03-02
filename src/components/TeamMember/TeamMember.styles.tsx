@@ -9,6 +9,10 @@ export const Container = styled.div`
   padding: 2rem 0 1rem 0;
   margin-top: 1rem;
 
+  @media ${breakPoints.tabletPortraitUp} {
+    width: 14rem;
+  }
+
   @media ${breakPoints.phoneOnly} {
     width: 11rem;
   }
@@ -19,7 +23,6 @@ export const Title = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  border: 0.25rem solid white;
   border-radius: 50%;
   width: 10rem;
   height: 10rem;

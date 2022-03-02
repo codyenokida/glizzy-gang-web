@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
   background: #455066;
-  padding: 0 0 4rem 0;
+  padding: 0px 0px 6rem;
 `;
 
 export const SubContainer = styled.div`
@@ -25,16 +25,16 @@ export const Title = styled.h1`
   font-weight: 400;
 
   @media ${breakPoints.phoneOnly} {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     padding: 0 0.5rem;
   }
 `;
 
 export const SubTitle = styled.h3`
   width: 30%;
+  margin-top: 0;
   margin-bottom: 0;
   @media ${breakPoints.phoneOnly} {
-    margin-top: -2rem;
     font-size: 1.15rem;
     font-weight: 700;
     width: 80%;
@@ -46,8 +46,8 @@ export const TeamContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 80%;
   justify-content: center;
+  max-width: 65rem;
 
   @media ${breakPoints.tabletPortraitUp} {
     justify-content: center;

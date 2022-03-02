@@ -1,5 +1,11 @@
 import RoadMapWidget from "../RoadMapWidget/RoadMapWidget";
-import { Container, SubContainer, Title, RedactedImage } from "./RoadMap.styles";
+import {
+  Container,
+  SubContainer,
+  Title,
+  RedactedImage,
+  BreakPoint,
+} from "./RoadMap.styles";
 
 import leftDog from "../../assets/leftRMGlizzy.png";
 import rightDog from "../../assets/rightRMglizzy.png";
@@ -51,7 +57,10 @@ const phaseTwo = [
 const RoadMap = () => {
   return (
     <Container id="roadmap">
-      <Title>Glizzys on the road</Title>
+      <Title>
+        Glizzys <BreakPoint />
+        on the road
+      </Title>
       <SubContainer>
         <RoadMapWidget phase="Phase 1" left={leftDog} right={rightDog}>
           {phaseOne.map((items) => {

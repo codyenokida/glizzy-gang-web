@@ -51,6 +51,10 @@ export const LeftImage = styled.img`
   width: 9rem;
   margin-right: 3rem;
 
+  @media ${breakPoints.tabletPortraitUp} {
+    display: none;
+  }
+
   @media ${breakPoints.phoneOnly} {
     display: none;
   }
@@ -60,6 +64,10 @@ export const RightImage = styled.img`
   width: 9rem;
   margin-left: 3rem;
 
+  @media ${breakPoints.tabletPortraitUp} {
+    display: none;
+  }
+  
   @media ${breakPoints.phoneOnly} {
     display: none;
   }

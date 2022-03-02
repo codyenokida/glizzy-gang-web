@@ -42,6 +42,10 @@ export const LeftContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-left: 2rem;
+
+  @media ${breakPoints.phoneOnly} {
+    margin-left: 1rem;
+  }
 `;
 
 export const RightContainer = styled.div`
@@ -49,6 +53,10 @@ export const RightContainer = styled.div`
   flex-direciton: row;
   align-items: center;
   margin-right: 2rem;
+
+  @media ${breakPoints.phoneOnly} {
+    margin-right: 1rem;
+  }
 `;
 
 export const SocialsContainer = styled.div`

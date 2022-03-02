@@ -10,16 +10,21 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
   background: linear-gradient(180deg, #51607e, #35354a);
-  padding: 5rem 0;
+  padding: 6rem 0 4rem;
 
   @media ${breakPoints.phoneOnly} {
     flex-direction: column;
+    padding: 5rem 0px;
   }
 `;
 
 export const SoldOutCart = styled.img`
   width: 21rem;
   margin-right: 2rem;
+
+  @media ${breakPoints.tabletPortraitUp} {
+    width: 16rem;
+  }
 
   @media ${breakPoints.phoneOnly} {
     width: 10rem;
@@ -48,7 +53,7 @@ export const Title = styled.h1`
   font-weight: 400;
 
   @media ${breakPoints.phoneOnly} {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     padding: 0 0.5rem;
   }
 `;
@@ -111,4 +116,8 @@ export const HotDog = styled.img`
   transform: translate(50%, -50%);
   width: 5.25rem;
   z-index: 100;
+
+  @media ${breakPoints.phoneOnly} {
+    width: 3.5rem;
+  }
 `;

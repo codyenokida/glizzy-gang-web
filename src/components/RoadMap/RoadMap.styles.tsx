@@ -10,10 +10,10 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
   background: #455066;
-  padding: 0 0 4rem 0;
+  padding: 0px 0px 6rem;
 
   @media ${breakPoints.phoneOnly} {
-    padding: 4rem 0 0 0;
+    padding: 0rem 0px 1rem;
   }
 `;
 
@@ -21,10 +21,11 @@ export const SubContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 10%;
+  max-width: 63.75rem;
 
   @media ${breakPoints.phoneOnly} {
-    padding: 0 2%;
-    width: 96%;
+    padding: 0;
+    width: 90%;
   }
 `;
 
@@ -97,5 +98,12 @@ export const RedactedImage = styled.img`
 
   @media ${breakPoints.phoneOnly} {
     width: 15.625rem;
+  }
+`;
+
+export const BreakPoint = styled.br`
+  display: none;
+  @media ${breakPoints.phoneOnly} {
+    display: block;
   }
 `;

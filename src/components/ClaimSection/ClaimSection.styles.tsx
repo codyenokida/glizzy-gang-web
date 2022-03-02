@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
   background: #455066;
-  padding: 2rem 0 4rem 0;
+  padding: 0 0 4rem;
 `;
 
 export const Title = styled.h1`
@@ -70,7 +70,8 @@ export const ImageContainer = styled.img`
 export const Tooltip = styled.p`
   margin-bottom: 4rem;
   @media ${breakPoints.phoneOnly} {
-    margin-top: -3rem;
+    margin-top: -1rem;
+    margin-bottom: 3rem;
     z-index: 1;
   }
 `;
@@ -113,7 +114,7 @@ export const MustardBottleFlipped = styled.img`
 
 export const Num = styled.p`
   font-size: 4rem;
-  margin: 1rem 0;
+  margin: 1rem 0px 3rem;
   font-family: "Outfit-Bold";
   font-weight: 700;
 
@@ -173,6 +174,11 @@ export const BottomContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 60%;
+  max-width: 53.125rem;
+
+  @media ${breakPoints.tabletPortraitUp} {
+    width: 90%;
+  }
 
   @media ${breakPoints.phoneOnly} {
     flex-direction: column;
@@ -185,14 +191,20 @@ export const Section = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 25rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
   font-family: "Outfit-Bold";
   background-color: #35354a;
   border-radius: 0.5rem;
   padding: 1.25rem 0;
 
+  @media ${breakPoints.tabletPortraitUp} {
+    margin: 4rem 0.5rem;
+  }
+
   @media ${breakPoints.phoneOnly} {
     width: 20rem;
+    margin: 0;
+    margin-top: 2rem;
   }
 `;
 

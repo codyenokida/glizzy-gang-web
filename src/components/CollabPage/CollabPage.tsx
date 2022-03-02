@@ -11,7 +11,7 @@ const collaborations = [kaiju, llama, furball, ethereal, ponzi, pixel];
 
 const CollabPage = () => {
   return (
-    <Container id="about">
+    <Container id="collaborations">
       <Title>Collabs & Integrations</Title>
       <SubTitle>So far...</SubTitle>
       <SubContainer>

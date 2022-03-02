@@ -22,7 +22,8 @@ export const Title = styled.h1`
   font-weight: 400;
 
   @media ${breakPoints.phoneOnly} {
-    font-size: 4rem;
+    font-size: 3.75rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -32,7 +33,8 @@ export const SubTitle = styled.h3`
   margin-top: 0;
   margin-bottom: 3rem;
   @media ${breakPoints.phoneOnly} {
-    width: 80%;
+    width: 60%;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -60,10 +62,10 @@ export const LeftDog = styled.img`
   position: absolute;
   left: 5rem;
   bottom: 0;
-  width: 17.875rem;
+  width: 16.5rem;
 
   @media ${breakPoints.tabletPortraitUp} {
-    width: 18rem;
+    width: 16rem;
     left: -2rem;
   }
 
@@ -77,10 +79,10 @@ export const RightDog = styled.img`
   position: absolute;
   right: 5rem;
   bottom: 0;
-  width: 17.875rem;
+  width: 16.5rem;
 
   @media ${breakPoints.tabletPortraitUp} {
-    width: 18rem;
+    width: 16rem;
     right: -2rem;
   }
 
@@ -92,14 +94,18 @@ export const RightDog = styled.img`
 
 export const CloudOne = styled.img`
   position: absolute;
-  width: 15rem;
+  width: 14rem;
   top: 5rem;
   right: 20rem;
 
+  @media ${breakPoints.tabletPortraitUp} {
+    display: none;
+  }
+
   @media ${breakPoints.phoneOnly} {
     width: 10rem;
-    top: 10rem;
-    right: 20rem;
+    top: 5.5rem;
+    right: 18rem;
   }
 `;
 
@@ -108,6 +114,12 @@ export const CloudTwo = styled.img`
   width: 20rem;
   top: 10rem;
   left: -7rem;
+
+  @media ${breakPoints.tabletPortraitUp} {
+    top: 8rem;
+    width: 17rem;
+  }
+
   @media ${breakPoints.phoneOnly} {
     display: none;
   }
@@ -116,12 +128,16 @@ export const CloudTwo = styled.img`
 export const CloudThree = styled.img`
   position: absolute;
   width: 10rem;
-  top: 20rem;
-  right: 2rem;
+  top: 22rem;
+  right: 1rem;
 
+  @media ${breakPoints.tabletPortraitUp} {
+    top: 34rem;
+    right: -2rem;
+  }
   @media ${breakPoints.phoneOnly} {
     width: 5rem;
-    top: 35rem;
+    top: 25rem;
     right: -2rem;
   }
 `;

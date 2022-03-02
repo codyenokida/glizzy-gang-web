@@ -11,16 +11,21 @@ export const Container = styled.div`
   justify-content: flex-start;
   text-align: center;
   background: #35354a;
-  padding: 8rem 0 4rem 0;
+  padding: 10rem 0px 4rem;
 
   @media ${breakPoints.tabletLandscapeUp} {
     flex-direction: column;
-    height: 100vh;
+    height: 40vh;
   }
 
   @media ${breakPoints.tabletPortraitUp} {
     flex-direction: column;
+    height: 50vh;
+  }
+
+  @media ${breakPoints.phoneOnly} {
     height: auto;
+    padding: 8rem 0px 7rem;
   }
 `;
 
@@ -63,7 +68,7 @@ export const Title = styled.h1`
   }
 
   @media ${breakPoints.tabletPortraitUp} {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     padding: 0 0.5rem;

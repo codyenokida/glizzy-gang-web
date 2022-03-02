@@ -153,7 +153,7 @@ function App() {
                 chainId={chainId}
               />
               <ClaimPage />
-              <Divider src={hangout} size={2} />
+              <Divider src={hangout} size={3} />
               <ClaimSection />
             </>
           }
