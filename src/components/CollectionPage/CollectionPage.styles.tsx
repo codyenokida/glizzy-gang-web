@@ -76,8 +76,9 @@ export const ImageContainer = styled.img`
   @media ${breakPoints.phoneOnly} {
     width: 12rem;
     height: 10rem;
-    marign-right: 0;
+    margin-right: 0;
     margin: 1rem 0;
+    top: 0;
   }
 `;
 

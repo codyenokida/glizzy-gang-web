@@ -79,6 +79,7 @@ export const Paragraph = styled.p`
   text-align: left;
   width: 50%;
   padding: 0 25%;
+  max-width: 39.375rem;
 
   @media ${breakPoints.tabletLandscapeUp} {
     width: 80%;

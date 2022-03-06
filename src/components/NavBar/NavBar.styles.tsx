@@ -23,7 +23,7 @@ export const LinkContainer = styled.ul`
   list-style-type: none;
   overflow: hidden;
   font-family: "Outfit-Bold";
-  @media ${breakPoints.phoneOnly} {
+  @media ${breakPoints.tabletLandscapeUp} {
     display: none;
   }
 `;
@@ -104,7 +104,7 @@ export const WalletButton = styled.div<NavigationBarProps>`
   &:hover {
     opacity: 0.9;
   }
-  @media ${breakPoints.phoneOnly} {
+  @media ${breakPoints.tabletLandscapeUp} {
     margin-right: 2rem;
   }
 `;
@@ -124,7 +124,7 @@ export const OpenSea = styled.div<NavigationBarProps>`
 export const HamburgerMenuContainer = styled.div`
   display: none;
 
-  @media ${breakPoints.phoneOnly} {
+  @media ${breakPoints.tabletLandscapeUp} {
     display: block;
     height: 100%;
     display: flex;

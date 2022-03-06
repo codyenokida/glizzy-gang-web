@@ -37,6 +37,7 @@ import hangout from "./assets/hangout.png";
 import radioActive from "./assets/radioactiveGlizzy.png";
 import BottomDivider from "./components/Divider/BottomDivider";
 import CollabPage from "./components/CollabPage/CollabPage";
+import BreedingPage from "./components/BreedingPage/BreedingPage";
 
 function App() {
   // Redux
@@ -155,6 +156,19 @@ function App() {
               <ClaimPage />
               <Divider src={hangout} size={3} />
               <ClaimSection />
+            </>
+          }
+        />
+        <Route
+          path="/breeding"
+          element={
+            <>
+              <NavBar
+                onClick={walletAddress ? console.log : setShowOverlay}
+                walletAddress={walletAddress}
+                chainId={chainId}
+              />
+              <BreedingPage />
             </>
           }
         />

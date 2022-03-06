@@ -16,6 +16,12 @@
     url(./fonts/Outfit/static/Outfit-Regular.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "Outfit-Light";
+  src: local("Outfit"),
+    url(./fonts/Outfit/static/Outfit-Light.ttf) format("truetype");
+}
+
 body {
   margin: 0;
   font-family: "Outfit-Regular";

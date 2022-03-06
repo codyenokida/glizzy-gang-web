@@ -123,6 +123,7 @@ export const Num = styled.p`
   }
 
   @media ${breakPoints.phoneOnly} {
+    margin: 1rem 0px;
     font-size: 2rem;
     text-align: center;
   }

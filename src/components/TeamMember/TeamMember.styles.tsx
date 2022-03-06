@@ -14,7 +14,7 @@ export const Container = styled.div`
   }
 
   @media ${breakPoints.phoneOnly} {
-    width: 11rem;
+    width: 10rem;
   }
 `;
 

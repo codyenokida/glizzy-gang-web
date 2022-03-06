@@ -103,6 +103,7 @@ export const CloudOne = styled.img`
   }
 
   @media ${breakPoints.phoneOnly} {
+    display: block;
     width: 10rem;
     top: 5.5rem;
     right: 18rem;

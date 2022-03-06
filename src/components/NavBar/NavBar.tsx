@@ -94,6 +94,11 @@ const NavBar = ({ onClick, walletAddress, dark, chainId }: any) => {
                 $MUSTARD
               </StyledRouterLink>
             </Link>
+            <Link>
+              <StyledRouterLink to="/breeding" dark={dark}>
+                Weenie Warriors
+              </StyledRouterLink>
+            </Link>
           </LinkContainer>
         </LeftContainer>
         <RightContainer>
