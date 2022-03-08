@@ -11,7 +11,7 @@ export const Container = styled.div`
   text-align: center;
   background: transparent linear-gradient(180deg, #35354a 0%, #7f99ac 100%) 0%
     0% no-repeat padding-box;
-  padding: 6rem 0px 4rem;
+  padding: 8rem 0px 3rem;
   overflow-y: hidden;
 
   @media ${breakPoints.tabletLandscapeUp} {
@@ -21,7 +21,7 @@ export const Container = styled.div`
 
   @media ${breakPoints.tabletPortraitUp} {
     height: auto;
-    padding: 8rem 0px 3rem;
+    padding: 6rem 0px 3rem;
   }
 `;
 
@@ -159,6 +159,11 @@ export const BreedingImageSmallBackground = styled.img`
   transform: translate(-50%, 4.5%);
   width: 14rem;
   z-index: 11;
+  overflow-y: hidden;
+
+  @media ${breakPoints.tabletLandscapeUp} {
+    bottom: 2px;
+  }
 
   @media ${breakPoints.phoneOnly} {
     width: 8rem;
