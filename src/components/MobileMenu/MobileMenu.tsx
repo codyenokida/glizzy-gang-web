@@ -79,6 +79,11 @@ const MobileMenu = ({ isOpen, setIsOpen }: any) => {
               $MUSTARD
             </StyledRouterLink>
           </Link>
+          <Link>
+            <StyledRouterLink to="/breeding" onClick={() => setIsOpen(false)}>
+              Weenie Warriors
+            </StyledRouterLink>
+          </Link>
         </ListContainer>
         <SocialsContainer>
           <SocialLink>

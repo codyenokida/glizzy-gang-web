@@ -7,7 +7,7 @@ import {
   RightContainer,
   SocialLink,
   SocialsContainer,
-  GlizzyLogoBlack,
+  GlizzyLogo,
   Title,
   Copyright,
 } from "./Footer.styles";
@@ -17,10 +17,10 @@ const Footer = () => {
     <Container>
       <LeftContainer>
         <BrandingContainer>
-          <GlizzyLogoBlack />
+          <GlizzyLogo />
           <Title>Glizzy Gang</Title>
         </BrandingContainer>
-        <Copyright>© 2021 GLIZZY GANG ALL RIGHTS RESERVED.</Copyright>
+        <Copyright>© 2022 GLIZZY GANG ALL RIGHTS RESERVED.</Copyright>
       </LeftContainer>
       <RightContainer>
         <SocialsContainer>

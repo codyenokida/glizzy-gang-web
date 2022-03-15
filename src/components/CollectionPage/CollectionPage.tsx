@@ -21,15 +21,18 @@ const CollectionPage = () => {
         <ImageContainer src={collectionImage} />
         <TextContainer>
           <Description>
-            Glizzy Gang is a collection of 5555 Glizzys - clean cut glizzys that
-            are ready to slide in any buns and relish at any given moment in the
-            streets of the Glizzyverse.
+            Glizzy Gang is a collection of 5555 Glizzys.
             <br />
             <br />
             Some may call it a hotdog, some may call it a frankfurter, but here,
             we call them glizzys. These Glizzys have been hand-crafted and
-            randomly generated from over 150 traits with tons of possible
-            combinations. Your Glizzy will be unique to you and only to you.
+            randomly generated from over 250 traits with tons of possible
+            combinations.
+            <br />
+            <br />
+            Your Glizzy will be unique to you and only to you, and that isn't
+            all. Each Glizzy also generates 5 $Mustard per day, the Glizzyverse
+            utility token. No Staking. No fuss.
           </Description>
           <SocialsContainer>
             <SocialLink>

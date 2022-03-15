@@ -34,7 +34,7 @@ export const ListContainer = styled.ul`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Rubik-Bold";
+  font-family: "Outfit-Bold";
   margin-top: 2rem;
 `;
 

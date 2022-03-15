@@ -8,17 +8,22 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(150deg, #6e632b, #202020);
-  padding: 4rem 0;
+  background: #35354a;
+  padding: 4rem 0 8rem;
+
+  @media ${breakPoints.phoneOnly} {
+    padding: 1rem 0px 5rem;
+  }
 `;
 
 export const Title = styled.h1`
   font-size: 5rem;
-  text-shadow: 0.5rem 0.5rem black;
   font-family: "Knewave-Regular";
   margin-top: 0;
+  font-weight: 400;
+
   @media ${breakPoints.phoneOnly} {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     padding: 0 0.5rem;
   }
 `;
@@ -26,6 +31,7 @@ export const Title = styled.h1`
 export const SubContainer = styled.div`
   display: flex;
   flex-direction: row;
+  max-width: 59.375rem;
   padding: 0 16%;
 
   @media ${breakPoints.tabletPortraitUp} {
@@ -46,19 +52,33 @@ export const TextContainer = styled.div`
   justify-content: center;
   flex-basis: 100%;
   text-align: left;
+
+  @media ${breakPoints.phoneOnly} {
+    text-align: center;
+    margin-top: 1rem;
+  }
 `;
 
 export const Description = styled.div``;
 
 export const ImageContainer = styled.img`
-  width: 33rem;
-  height: 28rem;
+  width: 22rem;
+  height: 18rem;
   margin-right: 4rem;
 
+  @media ${breakPoints.tabletPortraitUp} {
+    width: 16rem;
+    height: 13rem;
+    position: relative;
+    top: 3rem;
+  }
+
   @media ${breakPoints.phoneOnly} {
-    width: 18rem;
-    height: 16rem;
+    width: 12rem;
+    height: 10rem;
     margin-right: 0;
+    margin: 1rem 0;
+    top: 0;
   }
 `;
 
@@ -77,6 +97,12 @@ export const SocialsContainer = styled.div`
   align-items: left;
   justify-content: flex-start;
   padding: 2rem 1rem 0 0;
+
+  @media ${breakPoints.phoneOnly} {
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0 0 0;
+  }
 `;
 
 export const SocialLink = styled.div`

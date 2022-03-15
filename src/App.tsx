@@ -30,6 +30,15 @@ import ClaimPage from "./components/ClaimPage/ClaimPage";
 import Migrate from "./components/MigratePage/Migrate";
 import ClaimSection from "./components/ClaimSection/ClaimSection";
 
+import mustard from "./assets/mustard.png";
+import hotdog from "./assets/divider-hotdog.png";
+import hangout from "./assets/hangout.png";
+
+import radioActive from "./assets/radioactiveGlizzy.png";
+import BottomDivider from "./components/Divider/BottomDivider";
+import CollabPage from "./components/CollabPage/CollabPage";
+import BreedingPage from "./components/BreedingPage/BreedingPage";
+
 function App() {
   // Redux
   const dispatch = useAppDispatch();
@@ -86,8 +95,6 @@ function App() {
     }
   }, [activate, activated]);
 
-  // Side effects for connecting a wallet from SwapWidget
-
   useEffect(() => {
     if (providerName) {
       const provider = SUPPORTED_WALLET_PROVIDERS.find(
@@ -113,23 +120,25 @@ function App() {
 
   return (
     <>
-      <NavBar
-        onClick={walletAddress ? console.log : setShowOverlay}
-        walletAddress={walletAddress}
-      />
       <Routes>
         <Route
           path="/"
           element={
             <>
+              <NavBar
+                onClick={walletAddress ? console.log : setShowOverlay}
+                walletAddress={walletAddress}
+                chainId={chainId}
+                active={active}
+              />
               <Landing />
-              <Divider />
               <MintPage />
-              <Divider />
               <CollectionPage />
-              <Divider />
+              <Divider src={mustard} size={1} />
               <RoadMap />
-              <Divider />
+              <BottomDivider src={radioActive} />
+              <CollabPage />
+              <Divider src={hotdog} size={2} />
               <Team />
             </>
           }
@@ -138,16 +147,33 @@ function App() {
           path="/claim"
           element={
             <>
+              <NavBar
+                onClick={walletAddress ? console.log : setShowOverlay}
+                walletAddress={walletAddress}
+                dark={true}
+                chainId={chainId}
+              />
               <ClaimPage />
-              <Divider />
+              <Divider src={hangout} size={3} />
               <ClaimSection />
+            </>
+          }
+        />
+        <Route
+          path="/breeding"
+          element={
+            <>
+              <NavBar
+                onClick={walletAddress ? console.log : setShowOverlay}
+                walletAddress={walletAddress}
+                chainId={chainId}
+              />
+              <BreedingPage />
             </>
           }
         />
         <Route path="migrate" element={<Migrate />} />
       </Routes>
-
-      <Divider />
       <Footer />
       {showOverlay && (
         <Overlay

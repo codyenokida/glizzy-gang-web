@@ -5,26 +5,26 @@ import { Web3Provider } from "@ethersproject/providers";
 
 import {
   Container,
-  ImageContainer,
-  SubContainer,
   TextContainer,
   Title,
   Tooltip,
-  Line,
   Num,
   ClaimButton,
   BottomContainer,
   SubTitle,
   Content,
   Section,
+  NumContainer,
+  MustardBottle,
+  MustardBottleFlipped,
 } from "./ClaimSection.styles";
 
-import miniGlizzy from "../../assets/miniGlizzy.png";
 import mustardABI from "../../contracts/MustardABI.json";
 import glizzyGangABI from "../../contracts/GlizzyGangABI.json";
 
-const mustardAddress = "0xe4a7ffC3124a7eFdC027C4472204C8351fbEa27c";
-const glizzyAddress = "0xA727ceA448c740fbF827574026395Cf7e5f973c1";
+import mustard from "../../assets/mustard-bottle.png";
+import { GLIZZY_ADDRESS, MUTARD_ADDRESS } from "../../constants";
+
 
 const ClaimSection = () => {
   // ethers
@@ -39,14 +39,14 @@ const ClaimSection = () => {
     if (library && account) {
       // initialize mustard contract
       const mustardContract = new ethers.Contract(
-        mustardAddress,
+        MUTARD_ADDRESS,
         mustardABI,
         library.getSigner()
       );
 
       // initialize glizzy contract
       const glizzyContract = new ethers.Contract(
-        glizzyAddress,
+        GLIZZY_ADDRESS,
         glizzyGangABI,
         library.getSigner()
       );
@@ -85,7 +85,7 @@ const ClaimSection = () => {
   const claim = async () => {
     if (library && account) {
       const mustardContract = new ethers.Contract(
-        mustardAddress,
+        MUTARD_ADDRESS,
         mustardABI,
         library.getSigner()
       );
@@ -108,17 +108,17 @@ const ClaimSection = () => {
   return (
     <Container id="claim-mustard">
       <Tooltip>To see values, your Wallet must be connected.</Tooltip>
-      <SubContainer>
-        <ImageContainer src={miniGlizzy} />
-        <TextContainer>
-          <Title>You can claim:</Title>
-          <Num>{claimable} $MUSTARD</Num>
-          <ClaimButton loading={loading} onClick={() => claim()}>
-            Claim Now
-          </ClaimButton>
-        </TextContainer>
-        <Line />
-      </SubContainer>
+      <TextContainer>
+        <Title>You can claim:</Title>
+        <NumContainer>
+          <MustardBottle src={mustard} />
+          <Num>{claimable} $Mustard</Num>
+          <MustardBottleFlipped src={mustard} />
+        </NumContainer>
+        <ClaimButton loading={loading} onClick={() => claim()}>
+          Claim Now
+        </ClaimButton>
+      </TextContainer>
       <BottomContainer>
         <Section>
           <SubTitle>You own:</SubTitle>

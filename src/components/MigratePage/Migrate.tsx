@@ -16,8 +16,8 @@ import rightDog from "../../assets/rightDog.png";
 
 import glizzyGangABI from "../../contracts/GlizzyGangABI.json";
 import openStoreABI from "../../contracts/OpenStoreABI.json";
+import { GLIZZY_ADDRESS } from "../../constants";
 
-const glizzyAddress = "0xA727ceA448c740fbF827574026395Cf7e5f973c1";
 const openStoreAddress = "0x495f947276749ce646f68ac8c248420045cb7b5e";
 
 const Migrate = () => {
@@ -40,7 +40,7 @@ const Migrate = () => {
           );
           const result = await contract.isApprovedForAll(
             account,
-            glizzyAddress
+            GLIZZY_ADDRESS
           );
           setIsApprovedForAll(result);
         } catch (e: any) {
@@ -67,7 +67,7 @@ const Migrate = () => {
       setLoadingApproval(true);
       // call setApproveForAll
       const res = await contract.setApprovalForAll(
-        glizzyAddress,
+        GLIZZY_ADDRESS,
         !isApprovedForAll
       );
       setIsApprovedForAll(true);
@@ -85,7 +85,7 @@ const Migrate = () => {
     try {
       if (library) {
         const contract = new ethers.Contract(
-          glizzyAddress,
+          GLIZZY_ADDRESS,
           glizzyGangABI,
           library?.getSigner()
         );
