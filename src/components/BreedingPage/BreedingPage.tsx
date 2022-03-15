@@ -57,12 +57,13 @@ const BreedingPage = () => {
   const [contractLoading, setContractLoading] = useState(false);
   const [selected, setSelected] = useState<number[]>([]);
   const [complete, setComplete] = useState(false);
+  const [mintedTokenImage, setMintedTokenImage] = useState(null);
+  const [mintedTokenID, setMintedTokenID] = useState(null);
 
   const { account, library } = useWeb3React<Web3Provider>();
 
   useEffect(() => {
     fetchData();
-    setSelected([251, 252]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account]);
 
@@ -171,6 +172,20 @@ const BreedingPage = () => {
           }
         );
         await tx.wait();
+        // get the walletOfOwner
+        const walletOfOwner = await weenieWarriorContract.walletOfOwner(
+          account
+        );
+        // get the last index of that
+        const weenieMinted = walletOfOwner[walletOfOwner.length - 1];
+        if (weenieMinted) {
+          const res = await fetch(
+            `https://weanie-warriors-api-aptci.ondigitalocean.app/warrior/${weenieMinted}`
+          );
+          const metadata = await res.json();
+          setMintedTokenImage(metadata.image);
+          setMintedTokenID(weenieMinted);
+        }
         setContractLoading(false);
         setComplete(true);
       }
@@ -235,15 +250,13 @@ const BreedingPage = () => {
             <BreedBox size={1}>
               {complete ? (
                 <a
-                  href="https://opensea.io/account"
+                  href={`https://weanie-warriors-api-aptci.ondigitalocean.app/warrior/${mintedTokenID}`}
                   target="_blank"
                   rel="noreferrer"
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                  }}
                 >
-                  View
+                  <BreedGlizzyImage
+                    src={mintedTokenImage || "https://via.placeholder.com/150"}
+                  />
                 </a>
               ) : (
                 "?"
