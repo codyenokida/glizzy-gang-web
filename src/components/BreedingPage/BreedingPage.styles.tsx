@@ -13,6 +13,7 @@ export const Container = styled.div`
     0% no-repeat padding-box;
   padding: 8rem 0px 3rem;
   overflow-y: hidden;
+  overflow-x: hidden;
 
   @media ${breakPoints.tabletLandscapeUp} {
     flex-direction: column;
@@ -288,7 +289,11 @@ export const ButtonContainerText = styled.p`
   font-family: "Outfit-Light";
 `;
 
-export const Button = styled.button`
+type ButtonProps = {
+  disabled: boolean;
+};
+
+export const Button = styled.button<ButtonProps>`
   font-family: "Outfit-Bold";
   background-color: #202020;
   padding: 0.75rem 2rem;
@@ -298,6 +303,9 @@ export const Button = styled.button`
 
   cursor: pointer;
   transition: 0.15s;
+
+  pointer-events: ${(props) => (props.disabled ? "none" : "default")};
+  opacity: ${(props) => (props.disabled ? "0.8" : "1")};
 
   &:hover {
     opacity: 0.8;

@@ -23,9 +23,8 @@ import mustardABI from "../../contracts/MustardABI.json";
 import glizzyGangABI from "../../contracts/GlizzyGangABI.json";
 
 import mustard from "../../assets/mustard-bottle.png";
+import { GLIZZY_ADDRESS, MUTARD_ADDRESS } from "../../constants";
 
-const mustardAddress = "0xe4a7ffC3124a7eFdC027C4472204C8351fbEa27c";
-const glizzyAddress = "0xA727ceA448c740fbF827574026395Cf7e5f973c1";
 
 const ClaimSection = () => {
   // ethers
@@ -40,14 +39,14 @@ const ClaimSection = () => {
     if (library && account) {
       // initialize mustard contract
       const mustardContract = new ethers.Contract(
-        mustardAddress,
+        MUTARD_ADDRESS,
         mustardABI,
         library.getSigner()
       );
 
       // initialize glizzy contract
       const glizzyContract = new ethers.Contract(
-        glizzyAddress,
+        GLIZZY_ADDRESS,
         glizzyGangABI,
         library.getSigner()
       );
@@ -86,7 +85,7 @@ const ClaimSection = () => {
   const claim = async () => {
     if (library && account) {
       const mustardContract = new ethers.Contract(
-        mustardAddress,
+        MUTARD_ADDRESS,
         mustardABI,
         library.getSigner()
       );

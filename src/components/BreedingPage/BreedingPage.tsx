@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createClient } from "urql";
 import { useWeb3React } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers/lib/web3-provider";
+import { ethers } from "ethers";
 
 import {
   Container,
@@ -34,6 +35,9 @@ import {
 import breedingBackground from "../../assets/breedingBackground.png";
 import breedingGlizzys from "../../assets/breedGlizzys.png";
 import mustard from "../../assets/mustard.png";
+import weenieWarriorABI from "../../contracts/WeenieWarriorABI.json";
+
+import { WEENIE_ADDRESS } from "../../constants";
 
 // import fallbackImage from "../../assets/";
 
@@ -50,17 +54,20 @@ const BreedingPage = () => {
     {}
   );
   const [loading, setLoading] = useState(false);
+  const [contractLoading, setContractLoading] = useState(false);
   const [selected, setSelected] = useState<number[]>([]);
+  const [complete, setComplete] = useState(false);
 
-  const { account } = useWeb3React<Web3Provider>();
+  const { account, library } = useWeb3React<Web3Provider>();
 
   useEffect(() => {
     fetchData();
+    setSelected([251, 252]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account]);
 
   const fetchData = async () => {
-    if (account) {
+    if (account && library) {
       const query = `
       query {
         users(where:{id:"${account.toLowerCase()}"}) {
@@ -73,32 +80,38 @@ const BreedingPage = () => {
       }
     `;
       setLoading(true);
-      const response = await client.query(query).toPromise();
-      if (response) {
-        if (response.data && response.data.users && response.data.users[0]) {
-          const glizzyData = response.data.users[0].tokens;
-          let temp = [];
-          let tempImageMapping: any = {};
-          for (const glizzyInfo of glizzyData) {
-            const id = glizzyInfo.id;
-            let tempGlizzyInfo = {
-              name: `Cryptdog #${id}`,
-              id: id,
-              src: "https://via.placeholder.com/150",
-            };
-            // fetch the image based off of the content uri
-            const res = await fetch(
-              `https://glizzy.mypinata.cloud/ipfs/Qmdq625bCeQa5PLZUGfgZ37vErScuq9PkwdMzFZ5BoFQQ2/${id}`
-            );
-            const tokenImageURL = await res.json();
-            tempGlizzyInfo.src = tokenImageURL.image;
-            temp.push(tempGlizzyInfo);
-            tempImageMapping[id] = tokenImageURL.image;
+      try {
+        const response = await client.query(query).toPromise();
+        if (response) {
+          if (response.data && response.data.users && response.data.users[0]) {
+            const glizzyData = response.data.users[0].tokens;
+            let temp = [];
+            let tempImageMapping: any = {};
+            for (const glizzyInfo of glizzyData) {
+              const id = glizzyInfo.id;
+              let tempGlizzyInfo = {
+                name: `Cryptdog #${id}`,
+                id: id,
+                src: "https://via.placeholder.com/150",
+              };
+              // fetch the image based off of the content uri
+              const res = await fetch(
+                `https://glizzy.mypinata.cloud/ipfs/Qmdq625bCeQa5PLZUGfgZ37vErScuq9PkwdMzFZ5BoFQQ2/${id}`
+              );
+              const tokenImageURL = await res.json();
+              tempGlizzyInfo.src = tokenImageURL.image;
+              temp.push(tempGlizzyInfo);
+              tempImageMapping[id] = tokenImageURL.image;
+            }
+            setImageMapping(tempImageMapping);
+            setGlizzys(temp);
           }
-          setImageMapping(tempImageMapping);
-          setGlizzys(temp);
         }
+      } catch (e: any) {
+        console.error(e);
+        alert(`Error occurred: ${e}`);
       }
+
       setLoading(false);
     }
   };
@@ -131,6 +144,40 @@ const BreedingPage = () => {
       }
     } else {
       setSelected([]);
+    }
+  };
+
+  const mintWeenieWarrior = async () => {
+    try {
+      if (library) {
+        const weenieWarriorContract = new ethers.Contract(
+          WEENIE_ADDRESS,
+          weenieWarriorABI,
+          library.getSigner()
+        );
+        setContractLoading(true);
+        const estimatedGasLimit =
+          await weenieWarriorContract.estimateGas.createWeenieWarriors(
+            selected,
+            1
+          );
+        const tx = await weenieWarriorContract.createWeenieWarriors(
+          selected,
+          1,
+          {
+            gasLimit: ethers.utils.hexlify(
+              Math.floor(estimatedGasLimit.toNumber() * 1.2)
+            ),
+          }
+        );
+        await tx.wait();
+        setContractLoading(false);
+        setComplete(true);
+      }
+    } catch (e) {
+      console.log(e);
+      alert(e);
+      setContractLoading(false);
     }
   };
 
@@ -178,9 +225,30 @@ const BreedingPage = () => {
           <BreedBoxContainerTwo>
             <ButtonContainer>
               <ButtonContainerText>Create a Weenie Warrior</ButtonContainerText>
-              <Button>Breed</Button>
+              <Button
+                onClick={() => mintWeenieWarrior()}
+                disabled={contractLoading || selected.length !== 2}
+              >
+                {contractLoading ? "Breeding" : "Breed"}
+              </Button>
             </ButtonContainer>
-            <BreedBox size={1}>?{/* <GlizzyImage src={}/> */}</BreedBox>
+            <BreedBox size={1}>
+              {complete ? (
+                <a
+                  href="https://opensea.io/account"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                  }}
+                >
+                  View
+                </a>
+              ) : (
+                "?"
+              )}
+            </BreedBox>
           </BreedBoxContainerTwo>
         </BreedingContainer>
         <BreedingBackground src={breedingBackground} />
@@ -198,7 +266,7 @@ const BreedingPage = () => {
               onClick={() => setOrRemoveSelected(glizzyInfo.id)}
               selected={selected.includes(glizzyInfo.id)}
             >
-              <GlizzyImage src={glizzyInfo.src} />
+              <GlizzyImage src={glizzyInfo.src} loading="lazy" />
               <GlizzyTitle>{glizzyInfo.name}</GlizzyTitle>
             </AssetContainer>
           ))}
