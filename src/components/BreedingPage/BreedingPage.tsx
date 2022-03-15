@@ -30,6 +30,7 @@ import {
   BreedingImageSmallBackground,
   MustardBottleTwo,
   MustardBottleOne,
+  Anchor,
 } from "./BreedingPage.styles";
 
 import breedingBackground from "../../assets/breedingBackground.png";
@@ -249,15 +250,17 @@ const BreedingPage = () => {
             </ButtonContainer>
             <BreedBox size={1}>
               {complete ? (
-                <a
-                  href={`https://weanie-warriors-api-aptci.ondigitalocean.app/warrior/${mintedTokenID}`}
+                <Anchor
+                  size={1}
+                  href={`https://opensea.io/assets/${WEENIE_ADDRESS}/${mintedTokenID}`}
                   target="_blank"
                   rel="noreferrer"
                 >
                   <BreedGlizzyImage
+                    size={1}
                     src={mintedTokenImage || "https://via.placeholder.com/150"}
                   />
-                </a>
+                </Anchor>
               ) : (
                 "?"
               )}

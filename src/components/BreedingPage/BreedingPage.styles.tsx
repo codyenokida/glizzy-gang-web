@@ -369,7 +369,31 @@ export const AssetContainer = styled.div<AssetContainerProps>`
   }
 `;
 
-export const BreedGlizzyImage = styled.img`
+type AnchorProps = {
+  size?: number;
+};
+
+export const Anchor = styled.a<AnchorProps>`
+  width: 13.75rem;
+  height: 13.75rem;
+
+  @media ${breakPoints.tabletLandscapeUp} {
+    width: 11.75rem;
+    height: 11.75rem;
+  }
+
+  @media ${breakPoints.tabletPortraitUp} {
+    width: ${(props) => (props.size ? "15rem" : "8.5rem")};
+    height: ${(props) => (props.size ? "15rem" : "8.5rem")};
+    font-size: ${(props) => (props.size ? "8rem" : "3rem")};
+  }
+`;
+
+type BreedGlizzyImageProps = {
+  size?: number;
+};
+
+export const BreedGlizzyImage = styled.img<BreedGlizzyImageProps>`
   width: 13.75rem;
   height: 13.75rem;
   border-radius: 0.75rem;
@@ -380,9 +404,9 @@ export const BreedGlizzyImage = styled.img`
   }
 
   @media ${breakPoints.tabletPortraitUp} {
-    width: 8.5rem;
-    height: 8.5rem;
-    font-size: 3rem;
+    width: ${(props) => (props.size ? "15rem" : "8.5rem")};
+    height: ${(props) => (props.size ? "15rem" : "8.5rem")};
+    font-size: ${(props) => (props.size ? "8rem" : "3rem")};
   }
 `;
 
